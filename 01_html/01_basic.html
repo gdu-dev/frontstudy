@@ -1,11 +1,77 @@
+<!-- HTML 주석 -->
+
+<!--
+  vscode 단축키
+  1. 주석       : Ctrl + /
+  2. 저장       : Ctrl + s
+  3. 행 복사    : Alt + Shift + 방향키
+  4. 행 이동    : Alt + 방향키
+  5. 행 삭제    : Shift + delete
+  6. 어시스턴스 : Ctrl + Spacebar
+-->
+
+<!--
+  HTML
+  1. HyperText Markup Language
+  2. 하이퍼텍스트 문서를 만든 언어이다. (웹 문서를 만드는 언어)
+  3. 태그로 구성된다. (<>로 묶은 작업 단위)
+    1) 태그마다 기능이 정해져 있다.
+    2) 대부분 시작 태그와 종료 태그로 구성된다.(<html> ~ </html>)
+    3) 나 홀로 태그도 있다.(<br>, <br/>)
+    4) 계층 구조를 가진다. (부모 태그, 자식 태그, 형제 태그)
+    5) 작성 형식
+      <태그이름 속성1="값1" 속성2="값2" 속성3="값3" attribute="value">
+    6) 태그 적용 범위
+      (1) 블록 요소   : 라인 전체에 적용되는 태그. 자동으로 줄 바꿈 처리됨
+      (2) 인라인 요소 : 해당 요소에만 적용되는 태그.
+-->
+
+<!-- HTML5 를 알리는 선언부 -->
 <!DOCTYPE html>
+
+<!-- HTML 문서의 모든 내용을 담는 최상위 태그 -->
 <html lang="en">
+
+<!-- HTML 문서의 각종 헤더 값을 담는 태그 -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
+<!-- HTML 문서의 본문 내용을 담는 태그 -->
 <body>
-  hello world
+
+  <!--
+    1. 줄 바꿈
+      1) <br> 또는 <br/>
+      2) 사용한만큼 줄이 바뀐다.
+  -->
+  <br><br>
+
+  <!--
+    2. 수평선
+      1) <hr> 또는 <hr/>
+      2) 수평선이 화면 전체 너비를 채운다.
+  -->
+  <hr>
+
+  <!--
+    3. 엔티티 코드
+      1) 특수문자를 의미한다.
+      2) &로 시작하고 ;으로 끝난다.
+  -->
+  작다 (less than) : &lt;
+  <br>
+  크다 (greater than) : &gt;
+  <br>
+  앰퍼센드 : &amp;
+  <br>
+  공    백 : &nbsp;
+  <br>
+
+  &lt;br&gt;
+
 </body>
+
 </html>
