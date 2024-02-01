@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    테이블 만들기
+    1. 블록 요소
+    2. 형식
+      <table>
+        <thead>----선택
+          <tr><td></td><td></td><td></td></tr>
+        </thead>
+        <tbody>----필수
+          <tr><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td></tr>
+        </tbody>
+        <tfoot>----선택
+          <tr><td></td><td></td><td></td></tr>
+        </tfoot>
+      </table>
+  -->
+
+  <table border="1">
+    <thead>
+      <tr><td>제품명</td>
+          <td>입고</td>
+          <td>출고</td></tr>
+    </thead>
+    <tbody>
+      <tr><td>새우깡</td>
+          <td>10</td>
+          <td>0</td></tr>
+      <tr><td>양파링</td>
+          <td>20</td>
+          <td>30</td></tr>
+      <tr><td>맛동산</td>
+          <td>30</td>
+          <td>20</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>총합계</td>
+          <td>60</td>
+          <td>50</td></tr>
+    </tfoot>
+  </table>
+
+  <!--
+    셀 병합하기
+    1. <td> 태그에 병합 속성을 추가해서 병합을 수행한다.
+    2. 병합 속성
+      1) colspan : 좌우 셀을 병합
+      2) rowspan : 상하 셀을 병합
+  -->
+  <table border="1">
+    <tbody>
+      <tr>
+        <td>1열</td>
+        <td>2열</td>
+        <td>3열</td>
+      </tr>
+      <tr>
+        <td>1열</td>
+        <td colspan="2">2~3열</td>
+      </tr>
+      <tr>
+        <td colspan="3">1~3열</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table border="1">
+    <tbody>
+      <tr>
+        <td>1행</td>
+        <td>2행</td>
+        <td rowspan="3">1~3행</td>
+      </tr>
+      <tr>
+        <td>2행</td>
+        <td rowspan="2">2~3행</td>
+      </tr>
+      <tr>
+        <td>3행</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+</html>
