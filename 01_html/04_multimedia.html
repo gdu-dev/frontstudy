@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!--
+    1. 절대 경로 (사용할 수 없다.)
+      C:/GDJ77/assets/image/animal1.jpg
+    2. 상대 경로
+      C:
+        ㄴGDJ77          : 상위x2 디렉터리     (../..)
+          ㄴassets       : 정적 자원 디렉터리  (../../assets)
+            ㄴimage      : 이미지 디렉터리     (../../assets/image)
+          ㄴfrontstudy   : 상위 디렉터리       (..)
+            ㄴ01_html    : 현재 디렉터리       (.)
+  -->
+
+  <!--
+    이미지 태그
+    1. 인라인 요소
+    2. <img> 또는 <img/>
+    3. 주요 속성
+      1) alt    : 이미지를 찾을 수 없는 경우에 대신 나타나는 텍스트
+      2) src    : 이미지 경로
+      3) width  : 이미지 너비 (높이도 함께 조정된다.)
+      4) height : 이미지 높이 (너비도 함께 조정된다.)
+  -->
+
+  <!-- 절대 경로로 작성한 이미지 (안 나옴) -->
+  <img alt="절대 경로는 사용할 수 없습니다." src="C:/GDJ77/assets/image/animal1.jpg">
+
+  <!-- 상대 경로로 작성한 이미지 -->
+  <img alt="상대 경로를 사용해야 합니다." src="../../assets/image/animal1.jpg" width="300px">
+
+
+
+
+
+</body>
+</html>
