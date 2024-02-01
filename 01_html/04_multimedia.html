@@ -36,9 +36,56 @@
   <!-- 상대 경로로 작성한 이미지 -->
   <img alt="상대 경로를 사용해야 합니다." src="../../assets/image/animal1.jpg" width="300px">
 
+  <hr>
 
+  <!--
+    오디오 태그
+    1. 인라인 요소
+    2. 형식
+      <audio>
+        <source src="오디오파일경로">
+      </audio>
+    3. 주요 속성
+         속성이름    속성값      의미
+      1) autoplay    autoplay    오디오 자동 재생
+      2) loop        loop        오디오 반복 재생
+      3) muted       muted       음소거
+      4) controls    controls    오디오 컨트롤 패널(재생, 중지, 소리조절 등)
+    4. 오디오의 content-type (MIME type)
+      1) audio/wav
+      2) audio/mp3
+      3) audio/ogg
+  -->
 
+  <audio controls="controls" autoplay="autoplay">
+    <source src="../../assets/audio/t-rex-roar.mp3">
+    브라우저가 &lt;audio&gt; 태그를 지원하지 않는다면 이 텍스트가 보입니다.
+  </audio>
 
+  <hr>
+
+  <!--
+    비디오 태그
+    1. 인라인 요소
+    2. 형식
+      <video>
+        <source src="비디오파일경로">
+      </video>
+    3. 주요 속성
+         속성이름    속성값      의미
+      1) autoplay    autoplay    비디오 자동 재생
+      2) loop        loop        비디오 반복 재생
+      3) muted       muted       음소거
+      4) controls    controls    비디오 컨트롤 패널(재생, 중지, 소리조절 등)
+      5) width       픽셀값      비디오 너비
+    4. 비디오의 content-type (MIME type)
+      1) video/mp4
+      2) video/webm
+      3) video/ogg
+  -->
+  <video controls>
+    <source src="../../assets/video/flower.webm">
+  </video>
 
 </body>
 </html>
