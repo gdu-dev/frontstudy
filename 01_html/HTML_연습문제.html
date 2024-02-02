@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div>
+    <ul type="disc">
+      <li>
+        운동
+        <ul type="circle">
+          <li>
+            축구
+            <ul type="square">
+              <li>공격수</li>
+              <li>수비수</li>
+              <li>골키퍼</li>
+            </ul>
+          </li>
+          <li>
+            야구
+            <ul type="square">
+              <li>투수</li>
+              <li>포수</li>
+              <li>야수</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <div>
+    <dl>
+      <dt>준비물</dt>
+      <dd>
+        <ul type="square">
+          <li>김치</li>
+          <li>참치</li>
+        </ul>
+      </dd>
+      <dt>조리법</dt>
+      <dd>
+        <ol type="1">
+          <li>물을 500cc 넣고 끓인다.</li>
+          <li>김치를 넣는다.</li>
+          <li>참치를 넣는다.</li>
+        </ol>
+      </dd>
+    </dl>
+  </div>
+
+  <hr>
+
+  <div>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td rowspan="5">1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td rowspan="3">10</td>
+          <td>11</td>
+          <td>12</td>
+          <td rowspan="2">13</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>15</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td colspan="5">19</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <table border="1">
+      <tbody>
+        <tr>
+          <td colspan="4">1</td>
+          <td rowspan="7">2</td>
+        </tr>
+        <tr>
+          <td rowspan="5">3</td>
+          <td rowspan="4">4</td>
+          <td colspan="2">5</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td rowspan="4">7</td>
+        </tr>
+        <tr>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td colspan="2">10</td>
+        </tr>
+        <tr>
+          <td colspan="4">11</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>이름</th>  <!-- th 태그는 td 태그의 일종으로 [굵게 + 가운데 정렬]이 자동으로 적용된다. -->
+          <th>나이</th>
+          <th>주소</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>홍길동</td>
+          <td>20세</td>
+          <td>서울시 마포구 노고산동</td>
+        </tr>
+        <tr>
+          <th>특기</th>
+          <td colspan="2">먹기</td>
+        </tr>
+        <tr>
+          <th rowspan="2">신체</th>
+          <td colspan="2">180.0cm</td>
+        </tr>
+        <tr>
+          <td colspan="2">83kg</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <table border="1">
+      <caption>우리펜션 객실안내</caption>  <!-- caption 태그는 테이블의 제목을 만든다. -->
+      <thead>
+        <tr>
+          <th>방이름</th>
+          <th>고객구분</th>
+          <th>정원</th>
+          <th>가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>콜로라도</td>
+          <td>여성 전용</td>
+          <td rowspan="3">4인실</td>
+          <td rowspan="4">100,000원</td>
+        </tr>
+        <tr>
+          <td rowspan="2">아레나도</td>
+          <td>가족용</td>
+        </tr>
+        <tr>
+          <td>커플용</td>
+        </tr>
+        <tr>
+          <td>엘레나</td>
+          <td>커플 전용</td>
+          <td>2인실</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">6월 15일까지 전 객실 50% 할인</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <hr>
+
+  <div>
+    <form method="post">
+      <input type="text" placeholder="example@naver.com" name="id">
+      <input type="password" placeholder="비밀번호" name="pwd">
+      <button>로그인</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <div>
+    <form method="post">
+      <table>
+        <tbody>
+          <tr>
+            <td><input type="text" placeholder="아이디" name="id"></td>
+            <td rowspan="2"><button type="submit">로그인</button></td>
+          </tr>
+          <tr>
+            <td><input type="password" placeholder="비밀번호" name="pw"></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <hr>
+
+  <div>
+    <form method="post">
+      <table>
+        <caption><strong>개인 정보 작성</strong></caption>
+        <tbody>
+          <tr>
+            <td><label for="name">이름</label></td>
+            <td><input type="text" name="name" id="name"></td>
+          </tr>
+          <tr>
+            <td><label for="mail">메일 주소</label></td>
+            <td><input type="text" name="mail" id="mail"></td>
+          </tr>
+          <tr>
+            <td><label for="contact">연락처</label></td>
+            <td><input type="text" name="contact" id="contact"></td>
+          </tr>
+          <tr>
+            <td><label for="blog">블로그/홈페이지</label></td>
+            <td><input type="text" name="blog" id="blog"></td>
+          </tr>
+          <tr>
+            <th colspan="2">
+              <button type="submit">제출하기</button>
+              <button type="reset">다시작성</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <hr>
+
+  <div>
+    <!-- 파일 첨부가 포함된 form은 method + enctype 필수 작성 -->
+    <form method="post" enctype="multipart/form-data">
+      <div>
+        <label for="id">아이디</label>
+        <input type="text" id="id" name="id" placeholder="아이디">
+        <input type="button" value="중복확인" onclick="alert('중복확인되었습니다.')">
+      </div>
+      <div>
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" name="pw" placeholder="새 비밀번호">
+      </div>
+      <div>
+        <label for="pw2">비밀번호 확인</label>
+        <input type="password" id="pw2" placeholder="비밀번호 확인">
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email" placeholder="이메일">
+        <span>@</span>
+        <input type="text" list="domain" name="email" placeholder="직접 입력 가능">
+        <datalist id="domain">
+          <option>gmail.com</option>
+          <option>naver.com</option>
+          <option>daum.net</option>
+        </datalist>
+      </div>
+      <div>
+        <fieldset>
+          <legend>성별</legend>
+          <input type="radio" name="gender" value="man" id="man">
+          <label for="man">남자</label>
+          <input type="radio" name="gender" value="woman" id="woman">
+          <label for="woman">여자</label>
+        </fieldset>
+      </div>
+      <div>
+        <fieldset>
+          <legend>관심</legend>
+          <div>
+            <input type="checkbox" name="interest" value="1" id="it">
+            <label for="it">IT</label>
+            <input type="checkbox" name="interest" value="2" id="manage">
+            <label for="manage">경영</label>
+          </div>
+          <div>
+            <input type="checkbox" name="interest" value="4" id="finance">
+            <label for="finance">금융</label>
+            <input type="checkbox" name="interest" value="8" id="manufacture">
+            <label for="manufacture">제조</label>
+          </div>
+          <div>
+            <input type="checkbox" name="interest" value="16" id="service">
+            <label for="service">서비스</label>
+            <input type="checkbox" name="interest" value="32" id="etc">
+            <label for="etc">기타</label>
+          </div>
+        </fieldset>
+        <div>
+          <label for="address">거주지</label>
+          <select name="address" id="address">
+            <option value="">::선택하세요::</option>
+            <option value="seoul">서울</option>
+            <option value="daejeon">대전</option>
+            <option value="daegu">대구</option>
+            <option value="busan">부산</option>
+            <option value="incheon">인천</option>
+          </select>
+          <input type="text" name="address">
+        </div>
+        <div>
+          <div><label for="introduce">자기 소개</label></div>
+          <textarea rows="5" cols="40" name="introduce" id="introduce" placeholder="200자 이내 간단히 작성"></textarea>
+        </div>
+        <div>
+          <label for="attach">이력서</label>
+          <input type="file" name="attach" id="attach">
+        </div>
+        <div>
+          <label for="submit_dt">제출일</label>
+          <input type="text" name="submit_dt" id="submit_dt">
+        </div>
+        <div>
+          <button type="submit">제출</button>
+          <button type="reset">다시입력</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
