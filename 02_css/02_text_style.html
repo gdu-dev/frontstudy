@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #p1 {
+      /* 글꼴 */ font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;  /* 'Gill Sans' 없으면 'Gill Sans MT' 없으면 sans-serif (고딕 계열) 사용 */
+      /* 크기 */ font-size: 32px;     /* 디폴트 크기 16px */
+      /* 굵기 */ font-weight: 900;    /* 디폴트 굵기 400, 100 ~ 900, 단위 없음 */
+      /* 속성 */ font-style: italic;  /* italic 기울임 */
+      /* 색상 */ color: #ff00ff;             /* RGB 색상코드, 각 2자리(00 ~ ff) 값을 가짐 */
+                 color: rgb(255, 0, 255);    /* RGB 색상함수, 각 자리(0 ~ 255) 값을 가짐 */
+                 color: rgba(0, 0, 0, 0.5);  /* alpha : 투명도 지정(0: 투명, 1: 불투명) */
+    }
+    #p2 {
+      /* 자간     */ letter-spacing: -0.5px;
+      /* 행높이   */ line-height: 32px;          /* 주로 세로 가운데 정렬을 위해서 사용 */
+      /* 밑줄     */ text-decoration: underline; /* none : 밑줄 없음 */
+      /* 들여쓰기 */ text-indent: 20px;
+    }
+    #p3 {
+      /* 정렬 */ text-align: center;  /* 블록 요소만 정렬된다. */
+      /*
+        벤더 프리픽스(vendor prefix)
+        1. 브라우저마다 prefix 값을 다르게 지정할 수 있다.
+        2. 종류
+          1) -webkit- : 크롬, 사파리
+          2) -moz-    : 파이어폭스
+          3) -o-      : 오페라
+      */
+      -webkit-text-stroke-color: red;
+      -webkit-text-stroke-width: 1px;
+      font-size: 32px;
+    }
+  </style>
+
+  <!--
+    구글 폰트 사용하기
+    1. https://fonts.google.com/에 접속한다.
+    2. 원하는 폰트를 선택한다.
+    3. 해당 폰트를 사용할 수 있도록 처리한다. (아래 방법 중 한 가지를 사용한다.)
+      1) <link>
+      2) @import
+    4. CSS 속성을 준다.
+  -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
+    #p4 {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <p id="p1">Hello World</p>
+  <p id="p2">Hello World</p>
+  <p id="p3">Hello World</p>
+  <p id="p4">Hello World</p>
+  
+</body>
+</html>
