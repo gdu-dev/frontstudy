@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /* 아이디 선택자 : #id */
+
+    #box1 {
+      color: teal;
+    }
+    #box2 {
+      color: thistle;
+    }
+    
+  </style>
+  <div id="box1">hello world</div>
+  <div id="box2">hello world</div>
+
+  <hr>
+
+  <style>
+
+    /*
+      class 속성
+      1. 전역 속성이다.
+      2. 동일한 특성을 가지는 요소들은 동일한 class 속성값을 가지도록 설계한다.
+      3. class 속성값을 중복된 값을 가질 수 있다.
+      4. 하나의 요소가 여러 class 속성값을 가질 수 있다. (공백으로 구분한다.)
+    */
+
+    /* 클래스 선택자 : .클래스 */
+
+    .title {
+      font-size: 32px;
+    }
+    .bold {
+      font-weight: 900;
+    }
+
+  </style>
+  <div class="title">안녕하세요</div>
+  <div class="title bold">안녕하세요</div>
+
+  <hr>
+
+  <style>
+
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+    /* 자식 선택자 :  부모 > 자식 */
+
+    #site > li {
+      color: orange;
+    }
+
+    #site > li > a {
+      color: orangered;
+    }
+
+  </style>
+  <ul id="site">
+    <li>구글
+        <a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a></li>
+    <li>유튜브
+        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a></li>
+    <li>인스타그램
+        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+  </ul>
+
+  <hr>
+
+  <style>
+
+    /* 후손 선택자 : 조상 후손 (공백으로 구분) */
+    #wakeup-time label {
+      color: chocolate;
+    }
+
+  </style>
+  <ol id="wakeup-time">
+    <li><input type="radio" name="rdo-wakeup" id="five" checked>
+        <label for="five">5시</label></li>
+    <li><input type="radio" name="rdo-wakeup" id="six">
+        <label for="six">6시</label></li>
+    <li><input type="radio" name="rdo-wakeup" id="seven">
+        <label for="seven">7시</label></li>
+    <li><input type="radio" name="rdo-wakeup" id="eight">
+        <label for="eight">8시</label></li>
+  </ol>
+
+
+</body>
+</html>
