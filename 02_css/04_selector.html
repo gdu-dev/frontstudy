@@ -94,6 +94,136 @@
         <label for="eight">8시</label></li>
   </ol>
 
+  <hr>
+
+  <style>
+
+    /* 일반 형제 선택자 : 형제 ~ 형제 */
+
+    #asia > h4 ~ p {
+      color: #0f0;
+    }
+
+  </style>
+  <div id="asia">
+    <p>말레이시아 (적용안됨)</p>
+    <h4>아시아</h4>
+    <p>한국 (적용됨)</p>
+    <p>일본 (적용됨)</p>
+    <p>중국 (적용됨)</p>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /* 인접 형제 선택자 : 형제 + 형제 */
+
+    .hobby-wrap > h4 + input + label {
+      color: rgb(255, 0, 0);
+    }
+
+  </style>
+  <div class="hobby-wrap">
+    <h4>취미</h4>
+    <input type="checkbox" id="golf">
+    <label for="golf">골프</label>
+    <input type="checkbox" id="cooking">
+    <label for="cooking">요리</label>
+    <input type="checkbox" id="gym">
+    <label for="gym">헬스</label>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      구조 선택자
+      1. 요소:first-of-type    : 첫 번째 요소
+      2. 요소:last-of-type     : 마지막 요소
+      3. 요소:nth-of-type(n)   : n 번째 요소
+    */
+
+    .dinner-menu li:nth-of-type(2) {
+      color: crimson;
+    }
+
+  </style>
+  <div class="dinner-menu">
+    <h4>오늘 저녁 메뉴는?</h4>
+    <ol>
+      <li>오뎅탕</li>
+      <li>소고기뭇국</li>
+      <li>김치찌개</li>
+      <li>된장찌개</li>
+    </ol>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      상태 선택자
+      1. 요소:focus    : 요소가 선택된 경우
+      2. 요소:checked  : 요소가 체크된 경우 (radio, checkbox)
+    */
+
+    .register-form > div:first-of-type > input:focus {
+      color: red;
+    }
+    .register-form > div:first-of-type > input:focus + label {
+      color: blue;
+    }
+
+    .register-form > div:last-of-type > input:checked + label {
+      font-weight: 900;
+    }
+
+  </style>
+  <div class="register-form">
+    <div>
+      <input type="text" id="name">
+      <label for="name">이름</label>
+    </div>
+    <div>
+      <input type="radio" name="rdo-gender" id="man" checked>
+      <label for="man">남자</label>
+      <input type="radio" name="rdo-gender" id="woman">
+      <label for="woman">여자</label>
+    </div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      마우스 반응 선택자
+      1. 요소:hover     : 요소에 마우스를 가져다대면 반응
+      2. 요소:active    : 요소를 마우스로 누르고 있는 동안 반응
+    */
+
+    .link > a {
+      color: #000;
+      text-decoration: none;
+    }
+    .link > a:hover {
+      color: orange;
+    }
+    .link > a:active {
+      color: orangered;
+    }
+
+  </style>
+  <div class="link">
+    <a href="https://www.naver.com/">
+      네이버
+    </a>
+  </div>
+
+  
 
 </body>
 </html>
