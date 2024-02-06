@@ -254,7 +254,7 @@
         |     |
         └-----┘
            7
-           
+
       4. margin: 5px 6px 7px 8px;
            5
         ┌-----┐
@@ -288,6 +288,36 @@
 
   </style>
   <div class="wrap5">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /* 부모 요소 */
+    .wrap6 {
+      box-sizing: border-box;
+      width: 500px;
+      border: 1px solid gray;
+      margin: 10px auto;
+    }
+    /* 자식 요소 */
+    .wrap6 > .box1 {
+      width: 100px;
+      height: 100px;
+      margin: 10px auto;
+      border: 1px solid tomato;
+    }
+    .wrap6 > .box2 {
+      width: 1000px;
+      height: 100px;
+      border: 1px solid orange;
+    }
+
+  </style>
+  <div class="wrap6">
     <div class="box1">box1</div>
     <div class="box2">box2</div>
   </div>

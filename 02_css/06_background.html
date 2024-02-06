@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /* 배경색 : background-color */
+
+    .box1 {
+      width: 100px;
+      height: 50px;
+      background-color: orange;
+    }
+
+  </style>
+  <div class="box1"></div>
+
+  <hr>
+
+  <style>
+
+    /*
+      배경 이미지
+      1. background-image    : 배경 이미지
+      2. background-size     : 배경 이미지 크기
+      3. background-repeat   : 배경 이미지 반복 여부
+      4. background-position : 배경 이미지 위치
+    */
+
+    /* box 보다 작은 배경 이미지 처리하기 */
+    .box2 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      background-image: url('../../assets/image/attach.png');
+      background-repeat: no-repeat;
+      background-size: 50px;        /* 너비 50px, 높이는 비율에 맞춰 자동 조정 */
+      background-size: 50px 100px;  /* 너비 50px, 높이 100px */
+      background-position: top;     /* top    : 배경 상단 가로 가운데 배치 */
+      background-position: bottom;  /* bottom : 배경 하단 가로 가운데 배치 */
+      background-position: left;    /* left   : 배경 왼쪽 세로 가운데 배치 */
+      background-position: right;   /* right  : 배경 오른쪽 세로 가운데 배치 */
+      background-position: center;  /* center : 배경 가로 세로 가운데 배치 */
+    }
+
+  </style>
+  <div class="box2"></div>
+
+  <hr>
+
+  <style>
+
+    /* box 보다 큰 배경 이미지 처리하기 */
+
+    .box3 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      background-image: url('../../assets/image/animal10.jpg');
+      
+    }
+
+
+  </style>
+  <div class="box3"></div>
+
+</body>
+</html>
