@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    .table1 {
+      border: 1px solid gray;
+      border-collapse: collapse;
+    }
+
+    .table1 td {
+      border-bottom: 1px solid tomato;
+      text-align: center;  /* 가로 가운데 정렬 */
+    }
+
+    .table1 td:first-of-type {
+      width: 100px;
+    }
+    .table1 td:nth-of-type(2) {
+      width: 200px;
+    }
+    .table1 td:last-child {
+      width: 300px;
+    }
+
+    .table1 > thead td {
+      padding: 10px;  /* padding을 이용한 세로 가운데 정렬 효과 */
+    }
+    .table1 > tbody td {
+      height: 50px;   /* height를 이용한 세로 가운데 정렬 확인 */
+      vertical-align: top;    /* 세로 상단 정렬 */
+      vertical-align: bottom; /* 세로 하단 정렬 */
+    }
+
+    .table1 > tbody > tr:hover {
+      background-color: beige;
+      cursor: pointer;
+    }
+
+  </style>
+  <table class="table1">
+    <thead>
+      <tr>
+        <td>회원번호</td>
+        <td>회원명</td>
+        <td>포인트</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>고길동</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>고사리</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>고라니</td>
+        <td>300</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">포인트 합계</td>
+        <td>600</td>
+      </tr>
+    </tfoot>
+  </table>
+
+</body>
+</html>
