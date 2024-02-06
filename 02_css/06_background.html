@@ -61,13 +61,47 @@
       width: 300px;
       height: 300px;
       border: 1px solid red;
-      background-image: url('../../assets/image/animal10.jpg');
-      
+      background-image: url('../../assets/image/animal4.jpg');
+      background-repeat: no-repeat;
+      background-size: contain;  /* contain : 이미지를 유지한 상태로 최대한 크게 보여준다. */
+      background-size: cover;    /* cover   : 이미지의 너비/높이 중 작은 부분은 최대한 키우고 box 밖으로 나간 부분은 자른다. */
     }
-
 
   </style>
   <div class="box3"></div>
+
+  <hr>
+
+  <style>
+
+    /* box 와 같은 크기의 배경 이미지 처리하기 */
+
+    .box4 {
+      width: 192px;
+      height: 128px;
+      background-image: url('../../assets/image/animal10.jpg');
+      background-size: 100%;  /* box 크기의 100% 너비를 가짐 */
+    }
+
+  </style>
+  <div class="box4"></div>
+
+  <hr>
+
+  <style>
+
+    /* 이미지의 일부만 보여주기 */
+
+    .box5 {
+      width: 150px;
+      height: 100px;
+      border: 1px solid gray;
+      background-image: url('../../assets/image/logo.png');
+      background-position: -560px -400px ;  /* 가로방향 이미지가 왼쪽으로 560px 이동, 세로방향 이미지가 위로 400px 이동 */
+    }
+
+  </style>
+  <div class="box5"></div>
 
 </body>
 </html>
