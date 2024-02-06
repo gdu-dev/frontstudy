@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /* 블록 요소는 크기를 지정할 수 있다. */
+    .wrap1 > div {
+      /* 너비 */ width: 100px;
+      /* 높이 */ height: 100px;
+    }
+
+    /* 인라인 요소는 크기를 지정할 수 없다. */
+    .wrap1 > span {
+      /* 너비 */ width: 100px;
+      /* 높이 */ height: 100px;
+    }
+
+  </style>
+  <div class="wrap1">
+    <div>블록 요소</div>
+    <span>인라인 요소</span>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /* 테두리 두께는 box 크기에 영향을 미친다. (디폴트) */
+
+    /*
+      테두리 속성
+      1. border-width : 테두리 두께
+      2. border-style : 테두리 종류 (solid, dotted, dashed, ...)
+      3. border-color : 테두리 색상
+    */
+
+    /*
+      테두리 단축 속성
+      1. border        : 모든 테두리, border-width border-style border-color
+      2. border-top    : 위
+      3. border-bottom : 아래
+      4. border-left   : 왼쪽
+      5. border-right  : 오른쪽
+    */
+
+    /*
+      테두리 모서리 둥글게 다듬기
+      1. border-radius: 5px;
+        ┌-----┐
+        |5   5|
+        |     |
+        |5   5|
+        └-----┘
+      2. border-radius: 5px 6px;
+        ┌-----┐
+        |5   6|
+        |     |
+        |6   5|
+        └-----┘
+      3. border-radius: 5px 6px 7px;
+        ┌-----┐
+        |5   6|
+        |     |
+        |6   7|
+        └-----┘
+      4. border-radius: 5px 6px 7px 8px;
+        ┌-----┐
+        |5   6|
+        |     |
+        |8   7|
+        └-----┘
+      */
+
+    .wrap2 > div {
+      width: 100px;
+      height: 100px;
+    }
+    .wrap2 > .box1 {
+      /* 모든 테두리 */
+      border: 1px solid gray;
+    }
+    .wrap2 > .box2 {
+      /* 개별 테두리 */
+      border-top: 1px solid crimson;
+      border-bottom: 1px solid tomato;
+      border-left: 1px solid orange;
+      border-right: 1px solid lime;
+    }
+    .wrap2 > .box3 {
+      border: 1px solid gray;
+      border-radius: 5px;
+      border-radius: 5px 6px;
+      border-radius: 5px 6px 7px;
+      border-radius: 5px 6px 7px 8px;
+    }
+
+  </style>
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+</body>
+</html>
