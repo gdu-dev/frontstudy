@@ -77,5 +77,113 @@
     </tfoot>
   </table>
 
+  <hr>
+
+  <style>
+    
+    .title {
+      font-weight: 900;
+      text-align: center;
+    }
+    .title > .month {
+      font-size: 48px;
+      color: blue;
+    }
+    .table2 {
+      border-collapse: collapse;
+      margin: 10px auto;
+    }
+    .table2 td {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      padding: 10px;
+      vertical-align: top;
+      font-weight: 900;
+    }
+    .table2 > thead td {
+      height: 20px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .table2 > tbody td:hover {
+      background-color: salmon;
+      cursor: pointer;
+    }
+    .prev, .next {
+      color: silver;
+    }
+    .sun, .holiday {
+      color: crimson;
+    }
+    .sat {
+      color: blue;
+    }
+  </style>
+  <div class="title">
+    2024 <span class="month">2</span> February
+  </div>
+  <table class="table2">
+    <thead>
+      <tr>
+        <td class="sun">SUN</td>
+        <td>MON</td>
+        <td>TUE</td>
+        <td>WED</td>
+        <td>THU</td>
+        <td>FRI</td>
+        <td class="sat">SAT</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="prev">28</td>
+        <td class="prev">29</td>
+        <td class="prev">30</td>
+        <td class="prev">31</td>
+        <td>1</td>
+        <td>2</td>
+        <td class="sat">3</td>
+      </tr>
+      <tr>
+        <td class="sun">4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td class="holiday">9</td>
+        <td class="holiday">10</td>
+      </tr>
+      <tr>
+        <td class="sun holiday">11</td>
+        <td class="holiday">12</td>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+        <td>16</td>
+        <td class="sat">17</td>
+      </tr>
+      <tr>
+        <td class="sun">18</td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+        <td>22</td>
+        <td>23</td>
+        <td class="sat">24</td>
+      </tr>
+      <tr>
+        <td class="sun">25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+        <td>29</td>
+        <td class="next">1</td>
+        <td class="next">2</td>
+      </tr>
+    </tbody>
+  </table>
+
 </body>
 </html>
