@@ -222,5 +222,75 @@
     <div class="box2">box2</div>
   </div>
 
+  <hr>
+
+  <style>
+
+    /*
+      외부 여백 (테두리 바깥 공간을 의미한다.)
+      1. margin: 5px;
+           5
+        ┌-----┐
+        |     |
+      5 |     | 5
+        |     |
+        └-----┘
+           5
+
+      2. margin: 5px 6px;
+           5
+        ┌-----┐
+        |     |
+      6 |     | 6
+        |     |
+        └-----┘
+           5
+
+      3. margin: 5px 6px 7px;
+           5
+        ┌-----┐
+        |     |
+      6 |     | 6
+        |     |
+        └-----┘
+           7
+           
+      4. margin: 5px 6px 7px 8px;
+           5
+        ┌-----┐
+        |     |
+      8 |     | 6
+        |     |
+        └-----┘
+           7
+    */
+    /*
+      원하는 외부 여백
+      1. margin-top    : 위
+      2. margin-bottom : 아래
+      3. margin-left   : 왼쪽
+      4. margin-right  : 오른쪽
+    */
+
+    .wrap5 > div {
+      box-sizing: border-box;
+      border: 1px solid gray;
+      width: 100px;
+      height: 100px;
+    }
+    .wrap5 > .box1 {
+      margin: 5px;
+    }
+    .wrap5 > .box2 {
+      /* box를 가운데 배치할 때 좌우 margin을 auto로 지정한다.(부모 요소 기준) */
+      margin: 5px auto;
+    }
+
+  </style>
+  <div class="wrap5">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+  </div>
+
 </body>
 </html>
