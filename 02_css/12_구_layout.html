@@ -62,5 +62,123 @@
     <div class="box4">box4</div>
   </div>
 
+  <hr>
+
+  <style>
+
+    /*
+      float + overflow
+      1. 수평 배치할 컨테이너들의 부모 컨테이너를 만든다.
+      2. 부모 컨테이너는 overflow: visible; 이 아닌 속성을 준다. (주로 hidden 사용)
+      3. 자식 컨테이너는 float 처리한다.
+    */
+
+    .wrap2 {
+      width: 600px;
+      margin: 10px auto;
+    }
+    .wrap2 div {
+      border: 1px solid gray;
+    }
+    .wrap2 > .box1 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: 0;
+    }
+    .wrap2 > .inner-wrap {
+      width: 600px;
+      height: 100px;
+      overflow: hidden;
+      border: 0;
+    }
+    .wrap2 > .inner-wrap > .box2, .wrap2 > .inner-wrap > .box3 {
+      width: 300px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      float: left;
+    }
+    .wrap2 > .inner-wrap > .box3 {
+      border-left: 0;
+    }
+    .wrap2 > .box4 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-top: 0;
+    }
+
+  </style>
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="inner-wrap">
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <div class="box4">box4</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      float + display
+      1. 수평 배치할 컨테이너들의 부모 컨테이너를 만든다.
+      2. 부모 컨테이너는 display: flow-root; 속성을 준다.
+      3. 자식 컨테이너는 float 처리한다.
+    */
+
+    .wrap3 {
+      width: 600px;
+      margin: 10px auto;
+    }
+    .wrap3 div {
+      border: 1px solid gray;
+    }
+    .wrap3 > .box1 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: 0;
+    }
+    .wrap3 > .inner-wrap {
+      width: 600px;
+      height: 100px;
+      display: flow-root;
+      border: 0;
+    }
+    .wrap3 > .inner-wrap > .box2, .wrap3 > .inner-wrap > .box3 {
+      width: 300px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      float: left;
+    }
+    .wrap3 > .inner-wrap > .box3 {
+      border-left: 0;
+    }
+    .wrap3 > .box4 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-top: 0;
+    }
+
+  </style>
+  <div class="wrap3">
+    <div class="box1">box1</div>
+    <div class="inner-wrap">
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <div class="box4">box4</div>
+  </div>
+
 </body>
 </html>
