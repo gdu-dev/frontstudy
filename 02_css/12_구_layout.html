@@ -184,8 +184,36 @@
 
   <style>
 
+    ul, li {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .gnb {
+      margin-bottom: 50px;
+      overflow: hidden;
+    }
+    .gnb > li {
+      float: left;
+      width: 100px;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+    }
+    .gnb a {
+      display: block;
+      width: 100px;
+      height: 50px;
+      color: gray;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+    }
+    .gnb a:hover {
+      color: black;
+      border-bottom: 3px solid black;
+    }
     
-
   </style>
   <ul class="gnb">
     <li><a href="#">메뉴1</a></li>
