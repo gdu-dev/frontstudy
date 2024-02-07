@@ -85,6 +85,14 @@
       border: 1px solid tomato;
     }
 
+    .wrap3 > .box1 {
+      position: absolute;
+      bottom: 20px;
+    }
+    .wrap3 > .box2 {
+      position: absolute;
+      right: 20px;
+    }
     .wrap3 > .box3 {
       position: absolute;
       top: 50px;
@@ -96,6 +104,27 @@
     <div class="box2">box2</div>
     <div class="box3">box3</div>
   </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      position: fixed;
+      1. HTML 요소의 배치 흐름을 따르지 않는다.
+      2. 뷰포트의 초기 컨테이너 블록을 기준으로 위치 조정을 할 수 있다. (top, bottom, left, right)
+    */
+
+    .fixed-box {
+      width: 1000px;
+      height: 100px;
+      background-color: rgba(0, 255, 0, 1);
+      position: fixed;
+      top: 0;
+    }
+
+  </style>
+  <div class="fixed-box"></div>
 
 </body>
 </html>

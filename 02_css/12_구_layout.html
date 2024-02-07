@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    div {
+      box-sizing: border-box;
+    }
+  </style>
+
+  <style>
+    
+    /*
+      float + clear
+      1. 수평 배치할 컨테이너를 float 처리한다.
+      2. 수평 배치한 컨테이너 아래에 있는 컨테이너는 clear 처리한다.
+    */
+
+    .wrap1 {
+      width: 600px;
+      margin: 10px auto;
+    }
+    .wrap1 > div {
+      border: 1px solid gray;
+    }
+    .wrap1 > .box1 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: 0;
+    }
+    .wrap1 > .box2, .wrap1 > .box3 {
+      width: 300px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      float: left;
+    }
+    .wrap1 > .box3 {
+      border-left: 0;
+    }
+    .wrap1 > .box4 {
+      width: 600px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border-top: 0;
+      clear: left;
+    }
+
+  </style>
+  <div class="wrap1">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <div class="box4">box4</div>
+  </div>
+
+</body>
+</html>
