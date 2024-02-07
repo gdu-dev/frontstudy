@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    div {
+      box-sizing: border-box;
+      border: 1px solid gray;
+    }
+  </style>
+
+  <style>
+
+    /*
+      display: flex;
+      1. 부모 컨테이너에 display: flex; 설정하면 자식 컨테이너들이 flexable item 이 된다.
+      2. 용어
+        1) 부모 : flex container
+        2) 자식 : flex item
+    */
+
+    .wrap1 {
+      width: 600px;
+      height: 200px;
+      display: flex;
+    }
+    .wrap1 > .box {
+      width: 50px;
+      height: 50px;
+    }
+
+  </style>
+  <div class="wrap1">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      flex-direction
+      1. flex-direction: row;            수평 방향 (디폴트)
+      2. flex-direction: row-reverse;    수평 역방향
+      3. flex-direction: column;         수직 방향
+      4. flex-direction: column-reverse; 수직 역방향
+    */
+
+    .wrap2 {
+      width: 200px;
+      height: 200px;
+      display: flex;
+    }
+    .wrap2 > .box {
+      width: 50px;
+      height: 50px;
+    }
+    .wrap2#row {
+      flex-direction: row;
+    }
+    .wrap2#row-reverse {
+      flex-direction: row-reverse;
+    }
+    .wrap2#column {
+      flex-direction: column;
+    }
+    .wrap2#column-reverse {
+      flex-direction: column-reverse;
+    }
+
+  </style>
+  <h3>flex-direction: row;</h3>
+  <div class="wrap2" id="row">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>flex-direction: row-reverse;</h3>
+  <div class="wrap2" id="row-reverse">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>flex-direction: column;</h3>
+  <div class="wrap2" id="column">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>flex-direction: column-reverse;</h3>
+  <div class="wrap2" id="column-reverse">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      flex-wrap
+      1. flex-wrap: nowrap;
+        1) flex item 을 single-line으로 배치한다.
+        2) flex item 의 크기가 변할 수 있다.
+        3) flex container 밖으로 나갈 수 있다.
+      2. flex-wrap: wrap;
+        1) flex item 을 multiple-line으로 배치한다.
+        2) flex item 의 크기가 유지된다.
+        3) flex container 밖으로 나갈 수 없다.
+    */
+
+    .wrap3 {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .wrap3 > .box {
+      width: 80px;
+      height: 80px;
+    }
+    .wrap3#nowrap {
+      flex-wrap: nowrap;
+    }
+    .wrap3#wrap {
+      flex-wrap: wrap;
+    }
+
+  </style>
+  <h3>flex-wrap: nowrap;</h3>
+  <div class="wrap3" id="nowrap">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <div class="box">box6</div>
+  </div>
+  <h3>flex-wrap: wrap;</h3>
+  <div class="wrap3" id="wrap">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <div class="box">box6</div>
+  </div>
+
+  
+
+</body>
+</html>
