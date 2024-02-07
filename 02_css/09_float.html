@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /*
+      HTML 요소 기본 배치
+      1. 블록 요소   : 위에서 아래로 배치한다.
+      2. 인라인 요소 : 왼쪽에서 오른쪽으로 배치한다.
+    */
+
+    /*
+      float 속성
+      1. HTML 요소의 기본 배치를 무시하고 배치할 수 있다.
+      2. float 요소를 띄워서 왼쪽이나 오른쪽에 배치할 수 있다.
+    */
+
+    .wrap1 > div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    .wrap1 > .box1 {
+      float: left;
+    }
+    .wrap1 > .box2 {
+      float: left;
+    }
+
+  </style>
+  <div class="wrap1">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+    안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 안녕하세요 반갑습니다 
+  </div>
+
+  <hr>
+
+  <style>
+
+    .wrap2 > div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+      text-align: center;
+      line-height: 200px;
+    }
+    .wrap2 > .box1 {
+      float: left;
+    }
+    .wrap2 > .box2 {
+      float: left;
+    }
+    .wrap2 > .box3 {
+      /* float 영역에서 벗어나기 위해 clear 속성을 사용한다. */
+      clear: left;   /* left, right, both */
+      background-color: beige;
+      width: 400px;
+    }
+
+  </style>
+  <div class="wrap2">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+</body>
+</html>
