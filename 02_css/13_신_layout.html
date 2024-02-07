@@ -154,7 +154,181 @@
     <div class="box">box6</div>
   </div>
 
+  <hr>
+
+  <style>
+
+    /*
+      flex-direction: column;
+      flex-wrap: wrap;
+      -----------------------
+      flex-flow: column wrap;
+    */
+
+    .wrap4 {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    .wrap4 > .box {
+      width: 80px;
+      height: 80px;
+    }
+
+  </style>
+  <h3>flex-flow: column wrap;</h3>
+  <div class="wrap4">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+    <div class="box">box5</div>
+    <div class="box">box6</div>
+  </div>
   
+  <hr>
+
+  <style>
+
+    /*
+      justify-content : 가로 축 정렬 (수평 정렬)
+      1. justify-content: flex-start;     시작 지점에 모임
+      2. justify-content: flex-end;       종료 지점에 모임
+      3. justify-content: center;         가운데 모임
+      4. justify-content: space-between;  flex item 사이에 공백 추가
+      5. justify-content: space-around;   flex item 마다 앞 뒤에 공백 추가
+      6. justify-content: space-evenly;   flex item 사이 균일한 공백 추가
+    */
+
+    .wrap5 {
+      width: 300px;
+      height: 100px;
+      display: flex;
+    }
+    .wrap5 > .box {
+      width: 50px;
+      height: 50px;
+    }
+
+    .wrap5#flex-start {
+      justify-content: flex-start;
+    }
+    .wrap5#flex-end {
+      justify-content: flex-end;
+    }
+    .wrap5#center {
+      justify-content: center;
+    }
+    .wrap5#space-between {
+      justify-content: space-between;
+    }
+    .wrap5#space-around {
+      justify-content: space-around;
+    }
+    .wrap5#space-evenly {
+      justify-content: space-evenly;
+    }
+
+  </style>
+  <h3>justify-content: flex-start;</h3>
+  <div class="wrap5" id="flex-start">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>justify-content: flex-end;</h3>
+  <div class="wrap5" id="flex-end">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>justify-content: center;</h3>
+  <div class="wrap5" id="center">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>justify-content: space-between;</h3>
+  <div class="wrap5" id="space-between">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>justify-content: space-around;</h3>
+  <div class="wrap5" id="space-around">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>justify-content: space-evenly;</h3>
+  <div class="wrap5" id="space-evenly">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      align-items : 세로 축 정렬 (수직 정렬)
+      1. align-items: flex-start;  시작 지점에 모임
+      2. align-items: flex-end;    종료 지점에 모임
+      3. align-items: center;      가운데 모임
+      4. align-items: stretch;     수직 방향으로 flex item 크기가 늘어남
+    */
+
+    .wrap6 {
+      width: 200px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+    }
+    .wrap6 > .box {
+      width: 50px;
+    }
+
+    .wrap6#flex-start {
+      align-items: flex-start;
+    }
+    .wrap6#flex-end {
+      align-items: flex-end;
+    }
+    .wrap6#center {
+      align-items: center;
+    }
+    .wrap6#stretch {
+      align-items: stretch;
+    }
+
+  </style>
+  <h3>align-items: flex-start;</h3>
+  <div class="wrap6" id="flex-start">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>align-items: flex-end;</h3>
+  <div class="wrap6" id="flex-end">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>align-items: center;</h3>
+  <div class="wrap6" id="center">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
+  <h3>align-items: stretch;</h3>
+  <div class="wrap6" id="stretch">
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+  </div>
 
 </body>
 </html>
