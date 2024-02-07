@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    /*
+      position: static;
+      1. HTML 요소 기본 배치를 의미한다. (디폴트)
+      2. 위치 조정이 불가능하다. (top, bottom, left, right)
+    */
+
+    .wrap1 {
+      width: 500px;
+      border: 1px solid gray;
+    }
+
+    .wrap1 > div {
+      position: static;
+      top: 100px;   /* 위에서 100px 이동하기   (이동안됨) */
+      left: 100px;  /* 왼쪽에서 100px 이동하기 (이동안됨) */
+    }
+
+  </style>
+  <div class="wrap1">
+    <div>box</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      position: relative;
+      1. HTML 요소 기본 배치를 따른다.
+      2. 자기 자신을 기준으로 위치 조정을 할 수 있다. (top, bottom, left, right)
+    */
+
+    .wrap2 {
+      width: 500px;
+      height: 200px;
+      border: 1px solid gray;
+    }
+
+    .wrap2 > div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid tomato;
+      position: relative;
+      top: 50px;
+      left: 50px;
+    }
+
+  </style>
+  <div class="wrap2">
+    <div>box</div>
+  </div>
+
+  <hr>
+
+  <style>
+
+    /*
+      position: absolute;
+      1. HTML 요소의 배치 흐름을 따르지 않는다.
+      2. 가까운 조상(position: static;이 아닌 조상) 기준으로 위치 조정을 할 수 있다. (top, bottom, left, right)
+      3. position: static;인 조상이 없다면 초기 컨테이너 블록을 기준으로 위치 조정을 할 수 있다.
+    */
+
+    .wrap3 {
+      width: 500px;
+      height: 500px;
+      border: 1px solid gray;
+      position: relative;
+    }
+
+    .wrap3 > div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid tomato;
+    }
+
+    .wrap3 > .box3 {
+      position: absolute;
+      top: 50px;
+    }
+
+  </style>
+  <div class="wrap3">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+
+</body>
+</html>
