@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    .wrap1 {
+      display: flex;
+    }
+    .wrap1 > .image {
+      width: 192px;
+      height: 128px;
+      background-repeat: no-repeat;
+      background-size: 192px 128px;
+    }
+    .wrap1 > .image#image1 {
+      background-image: url('../../assets/image/flower1.jpg');
+    }
+    .wrap1 > .image#image2 {
+      background-image: url('../../assets/image/flower2.jpg');
+    }
+    .wrap1 > .image#image3 {
+      background-image: url('../../assets/image/flower3.jpg');
+    }
+
+    /* 블라인드 처리하기 */
+    .wrap1 > .image#image2 {
+      visibility: hidden;  /* 안 보이지만 자리는 차지한다. */
+    }
+
+  </style>
+  <div class="wrap1">
+    <div class="image" id="image1"></div>
+    <div class="image" id="image2"></div>
+    <div class="image" id="image3"></div>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap2 {
+      display: flex;
+    }
+    .wrap2 > .image {
+      width: 192px;
+      height: 128px;
+      background-repeat: no-repeat;
+      background-size: 192px 128px;
+    }
+    .wrap2 > .image#image1 {
+      background-image: url('../../assets/image/flower1.jpg');
+    }
+    .wrap2 > .image#image2 {
+      background-image: url('../../assets/image/flower2.jpg');
+    }
+    .wrap2 > .image#image3 {
+      background-image: url('../../assets/image/flower3.jpg');
+    }
+
+    /* 블라인드 처리하기 */
+    .wrap2 > .image#image2 {
+      display: none;  /* 영역 자체가 사라진다. */
+    }
+
+  </style>
+  <div class="wrap2">
+    <div class="image" id="image1"></div>
+    <div class="image" id="image2"></div>
+    <div class="image" id="image3"></div>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap3 {
+      display: flex;
+    }
+    .wrap3 > .image {
+      width: 192px;
+      height: 128px;
+      background-repeat: no-repeat;
+      background-size: 192px 128px;
+    }
+    .wrap3 > .image#image1 {
+      background-image: url('../../assets/image/flower1.jpg');
+    }
+    .wrap3 > .image#image2 {
+      background-image: url('../../assets/image/flower2.jpg');
+    }
+    .wrap3 > .image#image3 {
+      background-image: url('../../assets/image/flower3.jpg');
+    }
+
+    /* 블라인드 처리하기 */
+    .wrap3 > .image#image2 {
+      opacity: 0;  /* 0 ~ 1, 0은 투명, 1은 불투명 */
+    }
+
+  </style>
+  <div class="wrap3">
+    <div class="image" id="image1"></div>
+    <div class="image" id="image2"></div>
+    <div class="image" id="image3"></div>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap4 {
+      display: flex;
+    }
+    .wrap4 > .image {
+      width: 192px;
+      height: 128px;
+      background-repeat: no-repeat;
+      background-size: 192px 128px;
+    }
+    .wrap4 > .image#image1 {
+      background-image: url('../../assets/image/flower1.jpg');
+    }
+    .wrap4 > .image#image2 {
+      background-image: url('../../assets/image/flower2.jpg');
+    }
+    .wrap4 > .image#image3 {
+      background-image: url('../../assets/image/flower3.jpg');
+    }
+
+    /* 블라인드 처리하기 */
+    /*
+      부모 컨테이너 : position: static; 아닌 요소로 변경 (주로 relative 사용)
+      자식 컨테이너 : position: absolute; 요소로 변경 후 화면 밖으로 이동
+    */
+    .wrap4 {
+      position: relative;
+    }
+    .wrap4 > .image#image2 {
+      position: absolute;
+      top: -9999px;
+    }
+
+  </style>
+  <div class="wrap4">
+    <div class="image" id="image1"></div>
+    <div class="image" id="image2"></div>
+    <div class="image" id="image3"></div>
+  </div>
+
+  <hr>
+
+  <style>
+    .wrap5 {
+      display: flex;
+    }
+    .wrap5 > .image {
+      width: 192px;
+      height: 128px;
+      background-repeat: no-repeat;
+      background-size: 192px 128px;
+    }
+    .wrap5 > .image#image1 {
+      background-image: url('../../assets/image/flower1.jpg');
+    }
+    .wrap5 > .image#image2 {
+      background-image: url('../../assets/image/flower2.jpg');
+    }
+    .wrap5 > .image#image3 {
+      background-image: url('../../assets/image/flower3.jpg');
+    }
+
+    /* 블라인드 처리하기 */
+    .wrap5 > .image#image2 {
+      width: 0px;
+      height: 0px;
+    }
+
+  </style>
+  <div class="wrap5">
+    <div class="image" id="image1"></div>
+    <div class="image" id="image2"></div>
+    <div class="image" id="image3"></div>
+  </div>
+
+</body>
+</html>
