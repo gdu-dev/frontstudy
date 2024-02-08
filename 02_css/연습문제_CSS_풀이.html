@@ -6,7 +6,87 @@
   <title>입사지원서</title>
   <style>
     /* 문제. CSS 작업을 수행하시오. */
-
+    body, div, dl, dt, dd, ul, li, h1, h4, p {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    ul {
+      list-style-type: none;
+    }
+    body {
+      width: 1024px;
+      margin: 0 auto;
+    }
+    .header {
+      padding: 1px 10px;
+      font-weight: 500;
+      color: white;
+      background-color: limegreen;
+      margin: 20px 0;
+    }
+    .wrap {
+      width: 100%;
+      min-height: 1000px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .left-wrap {
+      width: 30%;
+      background-color: rgb(221, 218, 218);
+      padding: 0 20px;
+    }
+    .picture {
+      width: 250px;
+      height: 300px;
+      background-image: url('../../assets/image/animal1.jpg');
+      background-size: cover;
+      margin: 30px auto;
+    }
+    .left-info dt::before {
+      content: '▶ ';
+    }
+    .left-info dt {
+      font-weight: 900;
+      margin-top: 20px;
+    }
+    .left-info dd {
+      margin: 20px 0 20px 20px;
+    }
+    .right-wrap {
+      width: 65%;
+      border: 1px solid gray;
+      padding: 10px;
+    }
+    .section h1 {
+      margin: 2px;
+    }
+    .line {
+      width: 100%;
+      height: 5px;
+      background-color: teal;
+      margin-bottom: -10px;
+    }
+    .section dl {
+      margin: 20px;
+    }
+    .section dt::before {
+      content: '◎ ';
+    }
+    .section dt {
+      margin-bottom: 10px;
+    }
+    .section dd {
+      margin: 10px 0 20px 150px;
+    }
+    .section ul {
+      list-style-type: circle;
+      margin-left: 50px;
+    }
+    .section ul li {
+      height: 50px;
+      line-height: 50px;
+    }
   </style>
 </head>
 <body>
