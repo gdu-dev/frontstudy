@@ -35,9 +35,78 @@
         5) orientation: landscape;  화면을 눕힌 경우에 동작
     */
 
+
+    /*
+      실습 예시
+      1. 너비 640px 이하     : 4행 1열
+      2. 너비 641px ~ 1024px : 2행 2열
+      3. 너비 1025px 초과    : 1행 4열
+    */
+
+    body {
+      box-sizing: border-box;
+      width: 80%;
+      margin: 20px auto;
+    }
+    div {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      border: 1px solid gray;
+    }
+
+    /* 1. 너비 640px 이하 : 4행 1열 */
+    @media screen and (max-width: 640px) {
+      .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .item {
+        width: 80%;
+        background-color: tomato;
+      }
+    }
+
+    /* 2. 너비 641px ~ 1024px : 2행 2열 */
+    @media screen and (min-width: 641px) and (max-width: 1024px) {
+      .container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+      .item {
+        width: 49%;
+        background-color: orange;
+      }
+    }
+
+    /* 3. 너비 1025px 초과 : 1행 4열 */
+    @media screen and (min-width: 1025px) {
+      .container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+      }
+      .item {
+        width: 24%;
+        background-color: limegreen;
+      }
+    }
+
   </style>
 
-
+  <div class="container">
+    <div class="item">box1</div>
+    <div class="item">box2</div>
+    <div class="item">box3</div>
+    <div class="item">box4</div>
+  </div>
 
 </body>
 </html>
