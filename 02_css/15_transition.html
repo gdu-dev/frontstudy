@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+
+    .box1 {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+    }
+    .box1:hover {
+      width: 300px;
+      background-color: tomato;
+    }
+
+    /*
+      이행 속성
+      1. transition-property        : 이행 과정을 볼 CSS 속성을 지정한다.
+      2. transition-duration        : 이행 시간을 지정한다. (3s : 3초)
+      3. transition-timing-function : 이행 과정이 동작하는 방식을 지정한다.
+    */
+    .box1 {
+      transition-property: width, background-color;
+      transition-duration: 3s;
+      transition-timing-function: ease-in;
+    }
+
+  </style>
+  <div class="box1">box1</div>
+
+  <hr>
+
+  <style>
+
+    .box2 {
+      margin: 100px auto;
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      border: 1px solid gray;
+      text-align: center;
+      line-height: 200px;
+      font-size: 32px;
+      cursor: pointer;
+    }
+    .box2:active {
+      transform: rotate(3600deg);  /* 10바퀴 회전 */
+    }
+
+    /* 이행 속성 */
+    .box2 {
+      transition-property: transform;
+      transition-duration: 3s;
+    }
+
+  </style>
+  <div class="box2">회전판</div>
+
+  <hr>
+
+  <style>
+
+    .img-container {
+      width: 192px;
+      height: 128px;
+      background-image: url('../../assets/image/architecture1.jpg');
+      background-size: 192px;
+    }
+    .screen {
+      width: 192px;
+      height: 128px;
+      background-color: rgba(255, 0, 0, 0.5);
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      text-align: center;
+      line-height: 128px;
+      opacity: 0;  /* 평소에는 안 보이는 상태 */
+    }
+    .img-container:hover + .screen {
+      opacity: 1;                     /* 보이기 */
+      transform: translateY(-128px);  /* 위로 128px 이동하기 */
+    }
+
+    /* 이행 속성 */
+    .screen {
+      transition-property: opacity, transform;
+      transition-duration: 1s;
+    }
+
+  </style>
+  <div class="img-container"></div>
+  <div class="screen">롯데타워</div>
+
+</body>
+</html>
