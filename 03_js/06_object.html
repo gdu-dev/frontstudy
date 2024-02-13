@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      객체
+      1. 클래스 없이 객체를 생성할 수 있다.
+      2. 하나의 데이터가 '속성(property)'과 '값(value)'으로 구성된다.
+      3. 형식
+        var obj = {속성:값, 속성:값, ...};
+      4. 객체에 저장된 값 접근 방식
+        1) 마침표 : 객체.속성
+        2) 대괄호 : 객체['속성']
+    */
+
+    // 객체 만들기
+    var me = {
+      name: '고길동',
+      age: 30,
+      isAlive: true,
+      hobbies: [
+        '여행',
+        '운동'
+      ],
+      home: {
+        address: '서울',
+        tel: '02-111-1111'
+      }
+    };
+
+    // 객체에 저장된 값 (마침표)
+    var msg1 = '<div>';
+    msg1 += '<div>이름: ' + me.name + '</div>';
+    msg1 += '<div>나이: ' + me.age + '</div>';
+    msg1 += '<div>생사여부: ' + me.isAlive + '</div>';
+    msg1 += '<div>취미: ';
+    for(var i = 0; i < me.hobbies.length; i++) {
+      msg1 += me.hobbies[i] + '&nbsp;';
+    }
+    msg1 += '</div>';
+    msg1 += '<div>주소: ' + me.home.address + '</div>';
+    msg1 += '<div>전화: ' + me.home.tel + '</div>';
+    msg1 += '</div>';
+    document.write(msg1);
+
+    // 객체에 저장된 값 (대괄호)
+    var msg2 = '<ul>';
+    msg2 += '<li>이름: ' + me['name'] + '</li>';
+    msg2 += '<li>나이: ' + me['age'] + '</li>';
+    msg2 += '<li>생사여부: ' + me['isAlive'] + '</li>';
+    msg2 += '<li>취미: ';
+    for(var i = 0; i < me['hobbies'].length; i++) {
+      msg2 += me['hobbies'][i] + '&nbsp;';
+    }
+    msg2 += '</li>';
+    msg2 += '<li>주소: ' + me['home']['address'] + '</li>';
+    msg2 += '<li>전화: ' + me['home']['tel'] + '</li>';
+    msg2 += '</ul>';
+    document.write(msg2);
+
+  </script>
+
+  <script>
+
+    /*
+      객체와 반복문
+      1. 객체가 가지고 있는 속성을 반복문으로 하나씩 접근할 수 있다.
+      2. 형식
+        for(var 속성 in 객체) {
+          객체.속성   - 사용 불가하다.
+          객체[속성]  - 사용 가능하다.
+        }
+    */
+
+    var you = {
+      name: '나순실',
+      age: 40,
+      isAlive: true
+    };
+
+    var msg = '<div>';
+    for(var p in you) {
+      msg += '<div>' + p + ': ' + you[p] + '</div>';
+    }
+    msg += '</div>';
+    document.write(msg);
+
+  </script>
+
+  <script>
+
+    // 객체 속성의 동적 처리(추가, 삭제, 수정)
+
+    // 빈 객체 생성
+    var car = {};
+
+    // 속성 동적 추가
+    car.maker = '벤츠';
+    car.model = '이클';
+    console.log(car);
+
+    // 속성 수정
+    car.maker = 'bmw';
+    car.model = '5시리즈';
+    console.log(car);
+
+    // 속성 삭제
+    delete car.maker;
+    delete car.model;
+    console.log(car);
+
+  </script>
+
+</body>
+</html>
