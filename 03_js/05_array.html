@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      배열
+      1. 서로 다른 타입의 값들을 하나의 배열에 저장할 수 있다.
+      2. 배열의 길이는 length 속성으로 확인할 수 있다.
+      3. 형식
+        var array = [요소, 요소, 요소, ...]
+    */
+
+    // 배열 선언 및 초기화
+    var array = [10, 'hello', true];
+
+    // 일반 for 문
+    for(var i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+
+    // for - in 문 (배열의 인덱스를 하나씩 반환하는 for 문)
+    for(var i in array) {
+      console.log(array[i]);
+    }
+
+    // 로고 이미지 출력하기(쿠팡, 다음, 구디, 구글, 네이버)
+    var logoList = ['coupang', 'daum', 'goodee', 'google', 'naver'];
+    var imgTag = '<div>';
+    for(var i = 0; i < logoList.length; i++){
+      imgTag += '<img src="../../assets/image/logo_' + logoList[i] + '.png" width="200px">&nbsp;';
+    }
+    imgTag += '</div>';
+    document.write(imgTag);
+
+  </script>
+
+  <script>
+
+    // 배열 선언 및 생성(비어 있는 배열)
+    var items = [];
+    
+    // 요소 추가하기
+    // 1. push(요소)    : 마지막 요소로 추가하기
+    // 2. unshift(요소) : 첫번째 요소로 추가하기
+    items.push('A');      // ['A']
+    items.push('B');      // ['A', 'B']
+    items.unshift('C');   // ['C', 'A', 'B']
+    items.unshift('D');   // ['D', 'C', 'A', 'B']
+    console.log(items);
+
+    // 요소 삭제하기
+    // 1. pop()   : 마지막 요소를 삭제하기
+    // 2. shift() : 첫번째 요소를 삭제하기
+    items.pop();          // ['D', 'C', 'A']
+    items.shift();        // ['C', 'A']
+    console.log(items);
+
+    // 요소 바꾸기 (요소 추가, 삭제, 바꾸기를 모두 수행할 수 있다.)
+    // splice(수정할 인덱스, 삭제할 요소의 개수, [추가할 요소1, 추가할 요소2, ...])
+
+    // 2번째 요소를 'Z'로 바꾸기
+    items.splice(1, 1, 'Z');
+    console.log(items);
+    
+    // 마지막 요소에 'X' 추가하기
+    items.splice(items.length, 0, 'X');
+    console.log(items);
+    
+    // 첫번째 요소 삭제하기
+    items.splice(0, 1);
+    console.log(items);
+
+  </script>
+
+</body>
+</html>
