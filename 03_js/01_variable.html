@@ -27,6 +27,27 @@
   <script>
 
     /*
+      JavaScript 출력 방식
+
+      1. 경고창
+        window.alert(출력메시지)
+      
+      2. 브라우저 화면
+        document.write(출력메시지)
+      
+      3. 콘솔 출력
+        console.log(출력메시지)
+    */
+
+    window.alert('hello world');
+    document.write('<h1>hello world</h1>');
+    console.log('hello world');
+
+  </script>
+
+  <script>
+
+    /*
       변수
 
       1. 기본 자료형
@@ -50,26 +71,68 @@
         3) 변수에 값을 저장할 때 타입이 결정된다.
     */
 
+    // 변수 선언
+    var a;                  // undefined
+    console.log(a, a + 1);  // undefined, NaN
+
+    // 재선언
+    var a;
+    a = 10;
+    console.log(a, typeof a);  // 10, number
+
+    // 동적 타입
+    a = 'hello';
+    console.log(a, typeof a);  // hello, string
+
+    // 변수 선언 생략
+    b = true;
+    console.log(b, typeof b);  // true, boolean
+
   </script>
 
   <script>
 
     /*
-      JavaScript 출력 방식
-
-      1. 경고창
-        window.alert(출력메시지)
-      
-      2. 브라우저 화면
-        document.write(출력메시지)
-      
-      3. 콘솔 출력
-        console.log(출력메시지)
+      호이스팅(hoisting)
+      1. JavaScript 인터프리터가 변수나 함수 선언부를 미리 메모리 공간을 할당하는 것을 의미한다.
+      2. 변수 선언을 나중에 해도 먼저 처리된다.
+      3. 변수 선언과 초기화를 작성해도 변수 선언과 초기화를 분리해서 처리한다.
     */
 
-    window.alert('hello world');
-    document.write('<h1>hello world</h1>');
-    console.log('hello world');
+   // 호이스팅에 의한 실행순서  
+   console.log(x);  // 2
+   var x;           // 1
+   x = 10;          // 3
+   console.log(x);  // 4
+
+   // 선언과 초기화의 분리
+   console.log(y);
+   var y = 20;      // var y; y = 20; 분리된 후 var y;만 호이스팅된다.
+   console.log(y);
+
+  </script>
+
+  <script>
+
+    /*
+      자료형 변환
+
+      1. number -> string
+        1) String(number) 함수
+        2) number + ''
+
+      2. string -> number
+        1) Number(string) 함수
+        2) parseInt(string) 함수
+        3) parseFloat(string) 함수
+    */
+
+    var i = 10;
+    var str = String(i);
+    console.log(str, typeof str);
+
+    var j = Number(str);
+    console.log(j, typeof j);
 
   </script>
 

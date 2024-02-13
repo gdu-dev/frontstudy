@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+    /*
+      1. 산술 연산자
+        1) 더하기 : +
+        2) 빼기   : -
+        3) 곱하기 : *
+        4) 제곱   : **          2 ** 3 == 8
+        5) 나누기 : /           5 / 2 == 2.5
+        6) 나머지 : %           5 % 2 == 1
+        7) 몫     : parseInt()  parseInt(5 / 2) == 2
+      2. 증감 연산자
+        1) 증가 : ++
+        2) 감소 : --
+      3. 대입 연산자 / 복합 대입 연산자
+        1) 대입      : =
+        2) 복합 대입 : +=, -=, *=, **=, /=, %=
+      4. 비교 연산자
+        1) 크다        : >
+        2) 크거나 같다 : >=
+        3) 작다        : <
+        4) 작거나 같다 : <=
+        5) 같다
+          (1) 값이 같다        : ==     1 == '1'  결과는 true 이다.
+          (2) 값과 타입이 같다 : ===    1 === '1' 결과는 false 이다.
+        6) 같지 않다
+          (1) 값이 같지 않다        : !=
+          (2) 값과 타입이 같지 않다 : !==
+      5. 논리 연산자
+        1) 논리 AND : &&
+        2) 논리 OR  : ||
+        3) 논리 NOT : !
+      6. 조건 연산자 (삼항 연산자)
+        (조건식) ? true 일 때 : false 일 때
+      7. 문자열 연결 연산자
+        +
+    */
+
+    console.log(1 == '1');   // true
+    console.log(1 === '1');  // false
+
+    // false는 0으로 간주한다.
+    console.log(0 == false); // true
+    console.log(1 + false);  // 1
+    
+    // true는 1로 간주한다.
+    console.log(1 == true);  // true
+    console.log(2 + true);   // 3
+
+    // 0, 빈 문자열('') 등 데이터가 없는 경우 false로 간주한다.
+    var a = '';
+    console.log(!a);  // true
+
+    // 데이터가 있는 경우 true로 간주한다.
+    var b = 'hello';
+    console.log(!b);  // false
+
+    // short circuit 을 활용한 디폴트 처리하기
+    // 전달 값이 없는 경우 기본값으로 사용할 데이터를 지정하기
+
+    // 전달 값이 없는 경우 '기본값' 사용
+    var x = '';
+    var y = x || '기본값';
+    console.log(y);
+
+    // 전달 값이 있는 경우 전달 값 그대로 사용
+    var x = '고길동';
+    var y = x || '기본값';
+    console.log(y);
+
+    // 일급 계산하기
+    // 시급 : 9860원
+    // 8시간까지는 시급
+    // 8시간 초과 근무는 시급 * 1.5
+    // 10시간 근무 시 일급 계산하기
+
+    var hourlyWage = 9860;
+    var workingTime = 10;
+
+    var regularPay = hourlyWage * workingTime;
+    var extraPay = (workingTime <= 8) ? 0 : (workingTime - 8) * hourlyWage * 0.5;
+
+    console.log('일급은 ' + (regularPay + extraPay) + '원입니다.');
+
+  </script>
+  
+</body>
+</html>
