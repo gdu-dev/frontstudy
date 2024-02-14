@@ -81,9 +81,8 @@
       1. 매개변수를 선언할 때 선언 키워드(var)는 사용하지 않는다.
       2. 매개변수를 선언할 때 매개변수의 이름만 작성한다.
       3. 매개변수의 디폴트 처리가 가능하다.
-      4. 말 줄임표(..., 전개 연산자)를 지원한다.
-      5. 인자 객체(arguments)를 지원한다.
-      6. 매개변수로 함수를 전달할 수 있다.
+      4. 인자 객체(arguments)를 지원한다.
+      5. 매개변수로 함수를 전달할 수 있다.
     */
 
     // 일반 변수 : 참조 관계 없음
@@ -130,20 +129,8 @@
     myFunc6();
     myFunc6(100);
 
-    // 말 줄임표(..., 전개 연산자)
-    function myFunc7(...numbers) {  // numbers는 배열로 처리한다.
-      var total = 0;
-      for(var i = 0; i < numbers.length; i++) {
-        total += numbers[i];
-      }
-      console.log(total);
-    }
-
-    myFunc7(1, 2, 3);
-    myFunc7(1, 2, 3, 4);
-
     // 인자 객체(arguments) : 인자를 저장하는 객체. 배열과 유사하게 동작하는 객체.
-    function myFunc8() {
+    function myFunc7() {
       var total = 0;
       for(var i = 0; i < arguments.length; i++) {
         total += arguments[i];
@@ -151,25 +138,25 @@
       console.log(total / arguments.length);
     }
 
-    myFunc8(1, 2, 3, 4);
+    myFunc7(1, 2, 3, 4);
 
     // 매개변수로 함수 전달하기 - 1
-    function myFunc9(func) {
+    function myFunc8(func) {
       func();
     }
 
     // 인자가 없는 익명 함수 전달
-    myFunc9(function() {
+    myFunc8(function() {
       console.log('인자가 없는 익명 함수');
     });
 
     // 매개변수로 함수 전달하기 - 2
-    function myFunc10(func, x, y) {
+    function myFunc9(func, x, y) {
       func(x, y);
     }
 
     // 인자가 있는 익명 함수 전달
-    myFunc10(function(x, y) {
+    myFunc9(function(x, y) {
       console.log(x, y);
     }, 'hello', 'world');
 

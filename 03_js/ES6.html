@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    // ES6는 ECMA2015를 의미한다.
+
+    /*
+      선언 키워드
+
+      1. let
+        1) 블록 레벨 { }의 스코프를 가진다.
+        2) 초기화를 생략할 수 있다.
+        3) 재선언이 불가능하다.
+        4) 지역 변수 용도로 사용한다.
+      
+      2. const
+        1) 블록 레벨 { }의 스코프를 가진다.
+        2) 반드시 초기화가 필요하다.
+        3) 재선언이 불가능하다.
+        4) 상수 용도로 사용한다.
+    */
+
+    // let
+    var array = [10, 1.5, 'A'];
+    for(let i = 0; i < array.length; i++) {
+      console.log(array[i]);
+    }
+   
+    // const
+    const func = function() {
+      console.log('func 실행');
+    }
+    func();
+
+  </script>
+
+  <script>
+
+    /*
+      back tick(`) 지원
+      1. Multiple-line 문자열 지원
+      2. 템플릿 리터럴(template literals) 지원
+    */
+
+    let str = `안녕하세요
+반갑습니다`;
+    console.log(str);
+
+    const name = '고길동';
+    console.log('내 이름은 ' + name + '입니다.');
+    console.log(`내 이름은 ${name}입니다.`);  // 템플릿 리터럴
+
+  </script>
+
+  <script>
+
+    /*
+      구조 분해
+      1. 객체는 '속성:값' 으로 데이터를 구성한다.
+      2. 객체를 구성하는 각 속성의 값을 일반 변수로 쉽게 가져올 수 있다.
+      3. 배열의 요소도 일반 변수로 하나씩 쉽게 가져올 수 있다.
+    */
+
+    // 객체 구조 분해
+    const car = {
+      maker: 'bmw',
+      model: '5시리즈'
+    };
+
+    // 구조 분해 할당
+    var { maker, model } = car;
+    console.log(maker, model);
+
+
+    // 배열 구조 분해
+    const colors = ['red', 'green', 'blue'];
+    /*
+    var a = colors[0];
+    var b = colors[1];
+    var c = colors[2];
+    */
+
+    // 구조 분해 할당
+    var [ a, b, c ] = colors;
+    console.log(a, b, c);
+
+  </script>
+
+  <script>
+
+    /*
+      화살표 함수 (arrow functions)
+      1. 익명 함수의 다른 표현 방식이다.
+      2. 형식
+        1) 화살표 함수를 이용한 함수 표현식
+          const 함수이름 = ([매개변수]) => {
+
+          }
+        2) 함수 호출
+          함수이름([인자]);
+    */
+
+    const myFunc = () => {
+      console.log('myFunc 실행');
+    }
+
+    myFunc();
+
+  </script>
+
+  <script>
+
+    /*
+      말 줄임표(..., 전개 연산자) 지원
+      1. 전달되는 인자 개수가 일정하지 않을 때 사용한다.
+      2. 배열로 처리한다.
+    */
+
+    // 말 줄임표(..., 전개 연산자)
+    const getTotal = (...numbers) => {  // numbers는 배열로 처리한다.
+      var total = 0;
+      for(var i = 0; i < numbers.length; i++) {
+        total += numbers[i];
+      }
+      return total;
+    }
+
+    console.log(getTotal(1, 2, 3));
+    console.log(getTotal(1, 2, 3, 4));
+
+  </script>
+
+</body>
+</html>
