@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      함수 작성 방법
+      1. 함수 선언(함수 정의)
+      2. 함수 표현식
+    */
+
+  </script>
+
+  <script>
+
+    /*
+      함수 선언(함수 정의)
+      1. 함수 이름을 직접 결정하는 방식이다.
+      2. 호이스팅된다.
+      3. 형식
+        1) 함수 선언
+          function 함수이름([매개변수]) {
+            함수본문
+            [return 반환값]
+          }
+        2) 함수 호출
+          함수이름([인자])
+    */
+
+    // myFunc1();
+
+    function myFunc1() {
+      window.alert('myFunc1 실행');
+    }
+
+  </script>
+
+  <script>
+
+    /*
+      함수 표현식
+      1. 익명 함수(이름 없는 함수)와 이름이 있는 함수를 변수에 저장하는 방식이다.
+      2. 호이스팅 되지 않는다.
+      3. 익명 함수 형식
+        1) 함수 표현식
+          var 함수이름 = function([매개변수]) {
+            함수본문
+            [return 반환값]
+          }
+        2) 함수 호출
+          함수이름([인자])
+      4. 이름이 있는 함수 형식
+        1) 함수 표현식
+          var 변수이름 = function 함수이름([매개변수]) {
+            함수본문
+            [return 반환값]
+          }
+        2) 함수 호출
+          함수이름([인자])
+          변수이름([인자])
+    */
+
+    var myFunc2 = function() {
+      window.alert('myFunc2 실행');
+    }
+    
+    // myFunc2();
+
+  </script>
+
+  <script>
+
+    /*
+      인자와 매개변수
+      1. 매개변수를 선언할 때 선언 키워드(var)는 사용하지 않는다.
+      2. 매개변수를 선언할 때 매개변수의 이름만 작성한다.
+
+    */
+
+    // 일반 변수 : 참조 관계 없음
+    function myFunc3(number) {
+      number = number + 1;
+    }
+
+    var number = 10;
+    console.log(number);
+    myFunc3(number);
+    console.log(number);
+
+    // 배열
+
+
+
+    // 객체
+
+
+
+  </script>
+
+
+</body>
+</html>
