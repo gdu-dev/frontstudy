@@ -153,18 +153,91 @@
 
     myFunc8(1, 2, 3, 4);
 
-    // 매개변수로 함수 전달하기
+    // 매개변수로 함수 전달하기 - 1
     function myFunc9(func) {
       func();
     }
 
-    // 익명 함수 전달
+    // 인자가 없는 익명 함수 전달
     myFunc9(function() {
-      console.log('익명 함수');
+      console.log('인자가 없는 익명 함수');
     });
+
+    // 매개변수로 함수 전달하기 - 2
+    function myFunc10(func, x, y) {
+      func(x, y);
+    }
+
+    // 인자가 있는 익명 함수 전달
+    myFunc10(function(x, y) {
+      console.log(x, y);
+    }, 'hello', 'world');
 
   </script>
 
+  <script>
+
+    /*
+      반환
+      1. 반환 타입을 작성하지 않는다.
+      2. return 반환값; 을 통해서 반환할 수 있다.
+      3. return; 을 통해서 함수 실행을 종료할 수 있다.
+    */
+
+    function myMax() {
+      // 전달된 인자 중 최대값 반환하기
+      var max = arguments[0] || 0;
+      for(var i = 1; i < arguments.length; i++) {
+        if(max < arguments[i]) {
+          max = arguments[i];
+        }
+      }
+      return max;
+    }
+
+    console.log(myMax());
+    console.log(myMax(4, 2, 5, 6));
+    console.log(myMax(4, 2, 5, 6, 8, 1, 9));
+
+  </script>
+
+  <script>
+
+    /*
+      중첩된 함수
+      1. 함수 안에 함수를 정의할 수 있다.
+      2. 외부 함수는 내부 함수의 매개변수나 변수를 사용할 수 없다.
+      3. 내부 함수는 외부 함수의 매개변수나 변수를 사용할 수 있다.
+
+      클로저
+      내부 함수의 수명이 외부 함수보다 길게 유지되는 JavaScript의 기능
+    */
+
+    // 중첩된 함수 확인
+    function getAddSquare(x, y) {
+      function getSquare(a) {
+        return a * a;
+      }
+      return getSquare(x) + getSquare(y);
+    }
+
+    var result = getAddSquare(3, 4);  // (3 * 3) + (4 * 4) 결과를 반환
+    console.log(result);
+
+    // 외부 함수와 내부 함수의 변수 사용
+    function outer(a) {
+      // console.log(b);  외부 함수는 내부 함수의 변수를 사용할 수 없다.
+      function inner(b) {
+        return a + b;  // 내부 함수는 외부 함수의 변수를 사용할 수 있다.
+      }
+      return inner;
+    }
+
+    console.log(outer(10));
+    console.log(outer(10)(20));
+    //                 a   b
+
+  </script>
 
 </body>
 </html>
