@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    // eval() : 전달한 문자열을 JavaScript 코드로 인식하고 실행
+    eval('console.log(1 + 2)');
+
+    // isNaN() : NaN 여부를 판단하여 true/false를 반환
+    var number = 'abc';
+    if(isNaN(number)) {
+      console.log(number + '는 숫자가 아님');
+    } else {
+      if(number % 2 == 1) {
+        console.log(number + '는 홀수');
+      } else {
+        console.log(number + '는 짝수');
+      }
+    }
+
+    // encodeURIComponent()
+    console.log(encodeURIComponent('https://search.naver.com/search.naver?query=내일날씨'));
+
+    // decodeURIComponent()
+    console.log(decodeURIComponent('%3A%3F%2F'));
+
+  </script>
+
+  <script>
+
+    /*
+      타이머 함수
+
+      1. setTimeout()
+        1) 특정 밀리초(ms) 후에 한 번 동작한다.
+        2) 동작
+          var timerId = setTimeout(함수, 밀리초);
+        3) 동작 취소
+          clearTimeout(timerId);
+
+      2. setInterval()
+        1) 특정 밀리초(ms)마다 반복해서 동작한다.
+        2) 동작
+          var timerId = setInterval(함수, 밀리초);
+        3) 동작 취소
+          clearInterval(timerId);
+    */
+
+    // setTimeout()을 이용한 카운트다운 (재귀 호출을 이용하기)
+    var msg = '';
+    function countDown(number) {
+      setTimeout(function() {
+        if(number == 0) {
+          msg = '<h1>발사</h1>';
+          document.write(msg);
+          return;
+        }
+        msg = '<h1>' + number + '</h1>';
+        document.write(msg);
+        countDown(number - 1);  // 재귀 호출
+      }, 1000);
+    }
+
+    countDown(5);
+
+    // setInterval()을 이용한 카운트다운
+    var msg = '';
+    function timer(number) {
+      var timerId = setInterval(function(){
+        if(number == 0) {
+          msg = '<h1>발사</h1>';
+          document.write(msg);
+          clearInterval(timerId);
+          return;
+        }
+        msg = '<h1>' + number-- + '</h1>';
+        document.write(msg);
+      }, 1000);
+    }
+
+    timer(3);
+
+  </script>
+
+</body>
+</html>
