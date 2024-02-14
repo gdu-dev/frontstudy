@@ -62,33 +62,36 @@
   <script>
 
     /*
-      구조 분해
+      구조 분해 할당
       1. 객체는 '속성:값' 으로 데이터를 구성한다.
       2. 객체를 구성하는 각 속성의 값을 일반 변수로 쉽게 가져올 수 있다.
       3. 배열의 요소도 일반 변수로 하나씩 쉽게 가져올 수 있다.
     */
 
-    // 객체 구조 분해
+    // 객체
     const car = {
       maker: 'bmw',
       model: '5시리즈'
     };
 
-    // 구조 분해 할당
-    var { maker, model } = car;
+    // 객체 구조 분해 할당
+    let { maker, model } = car;
+    /*
+      let maker = car.maker;
+      let model = car.model;
+    */
     console.log(maker, model);
 
-
-    // 배열 구조 분해
+    // 배열
     const colors = ['red', 'green', 'blue'];
+    
+    // 배열 구조 분해 할당
+    let [ a, b, c ] = colors;
     /*
-    var a = colors[0];
-    var b = colors[1];
-    var c = colors[2];
+      let a = colors[0];
+      let b = colors[1];
+      let c = colors[2];
     */
-
-    // 구조 분해 할당
-    var [ a, b, c ] = colors;
     console.log(a, b, c);
 
   </script>
@@ -125,8 +128,8 @@
 
     // 말 줄임표(..., 전개 연산자)
     const getTotal = (...numbers) => {  // numbers는 배열로 처리한다.
-      var total = 0;
-      for(var i = 0; i < numbers.length; i++) {
+      let total = 0;
+      for(let i = 0; i < numbers.length; i++) {
         total += numbers[i];
       }
       return total;
