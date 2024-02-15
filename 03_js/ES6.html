@@ -110,11 +110,13 @@
           함수이름([인자]);
     */
 
-    const myFunc = () => {
-      console.log('myFunc 실행');
+    const myFunc1 = () => {
+      console.log('myFunc1 실행');
     }
+    myFunc1();
 
-    myFunc();
+    const myFunc2 = () => 'hello world';  // return 만 존재하는 경우 return 키워드 생략이 가능하다.
+    console.log(myFunc2());
 
   </script>
 

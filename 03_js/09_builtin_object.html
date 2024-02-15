@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      JSON 내장 객체
+
+      1. JavaScript 객체 -> string 형식의 JSON 데이터
+        1) 서버로 데이터를 보낼 때 활용
+        2) 형식 : JSON.stringify(JS객체)
+      2. string 형식의 JSON 데이터 -> JavaScript 객체
+        1) 서버에서 받은 데이터를 분석할 때 활용
+        2) 형식 : JSON.parse(문자열JSON)
+    */
+
+    // JavaScript 객체
+    var car = {
+      maker: 'bmw',
+      model: '5시리즈'
+    };
+
+    // JavaScript 객체 -> string 형식의 JSON 데이터
+    var jsonData = JSON.stringify(car);
+    console.log(jsonData, typeof jsonData);
+
+    // string 형식의 JSON 데이터 -> JavaScript 객체
+    var jsObj = JSON.parse(jsonData);
+    console.log(jsObj, typeof jsObj);
+
+  </script>
+
+  <script>
+
+    /*
+      Array 내장 객체
+      1. forEach() : 반복문
+      2. filter()  : 요소 검사
+      3. map()     : 요소 바꾸기
+    */
+
+    // 배열
+    var array = ['game', 'travel', 'cooking', 'movie', 'fishing'];
+
+    // forEach()
+    array.forEach(function(element){  // array의 모든 요소가 하나씩 element로 전달된다.
+      console.log(element);
+    });
+    array.forEach(function(element, i){
+      console.log(i, element);
+    })
+
+    // filter()
+    array.filter(function(element){
+      return element.length > 5;  // 길이가 5보다 큰 요소만 남긴 배열을 반환함
+    }).forEach(function(element){
+      console.log(element);
+    });
+
+    // map()
+    array.map(function(element){
+      return element + '가자';  // 모든 요소 뒤에 '가자'를 추가한 배열을 반환함
+    }).forEach(function(element){
+      console.log(element);
+    });
+
+  </script>
+
+  <script>
+
+    /* Math 내장 함수 */
+
+    console.log('절대값', Math.abs(-5));            // 5
+    
+    console.log('정수 올림값', Math.ceil(5.1));     // 6
+    console.log('정수 올림값', Math.ceil(-5.1));    // -5
+
+    console.log('정수 내림값', Math.floor(5.1));    // 5
+    console.log('정수 내림값', Math.floor(-5.1));   // -6
+
+    console.log('정수 반올림값', Math.round(5.5));  // 6
+    console.log('정수 반올림값', Math.round(-5.5)); // -5
+
+    console.log('정수 절사값', Math.trunc(5.5));    // 5
+    console.log('정수 절사값', Math.trunc(-5.5));   // -5
+
+    console.log('제곱', Math.pow(2, 3));            // 2 ** 3과 동일 === 8
+
+    console.log('제곱근', Math.sqrt(25));           // 루트 25 === 5
+
+    console.log('난수', Math.random());             // 0.0 <= 난수 < 1.0
+    console.log('주사위', parseInt(Math.random() * 6 + 1));
+
+  </script>
+
+  <script>
+
+    /* Date 내장 객체 */
+
+    // 현재 날짜와 시간
+    var now = Date();  // new Date().toString()
+    console.log(now, typeof now);
+
+    // 특정 날짜와 시간
+    var someday = new Date(2024, 0, 1, 12, 0, 0);  // (2024-01-01 12:00:00) 월은 0 ~ 11 사이 값을 가짐 
+    console.log(someday, typeof someday);
+
+    // 타임스탬프
+    var timestamp = Date.now();
+    console.log(timestamp, typeof timestamp);
+
+    // 날짜/시간 단위 가져오기
+    var now = new Date();  // object 형식의 now
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    var timestamp = now.getTime();
+    console.log(year, month, day, hour, minute, second, timestamp);
+
+  </script>
+
+  <script>
+
+    /* String 내장 객체 */
+
+    var str = 'JavaScript';
+
+    // 1. 길이 반환
+    console.log(str.length);  // 괄호가 없는 length 속성
+
+    // 2. 특정 인덱스의 문자 반환
+    console.log('첫 번째 글자', str.charAt(0));
+    console.log('마지막 글자', str.charAt(str.length - 1));
+
+    // 3. 특정 문자의 인덱스 반환
+    console.log('첫 번째 인덱스', str.indexOf('a'));
+    console.log('마지막 인덱스', str.lastIndexOf('a'));
+
+    // 4. 일부 문자열 반환
+    console.log('Java', str.substring(0, 4));  // 인덱스 0 <= 문자열 < 인덱스 4
+    console.log('Script', str.substring(4));   // 인덱스 4 <= 문자열 끝까지
+    console.log('Java', str.substr(0, 4));     // 인덱스 0부터 4글자  (deprecated)
+    console.log('Script', str.substr(4));      // 인덱스 4부터 끝까지 (deprecated)
+    console.log('Java', str.slice(0, 4));      // 인덱스 0 <= 문자열 < 인덱스 4
+    console.log('Script', str.slice(4));       // 인덱스 4 <= 문자열 끝까지
+    console.log('Java', str.slice(-10, -6));   // 인덱스 -10 <= 문자열 < 인덱스 -6 (마지막 글자의 인덱스는 -1이다.)
+    console.log('Script', str.slice(-6));      // 인덱스 -6 <= 문자열 끝까지
+
+  </script>
+
+</body>
+</html>
