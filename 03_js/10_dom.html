@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      DOM
+
+      1. Document Object Model(문서 객체 모델)
+      2. HTML, XML 문서의 프로그래밍 인터페이스이다.
+      3. 프로그래밍 언어를 이용해서 DOM 구조(태그)에 접근한 뒤 구조, 스타일, 내용을 변경할 수 있다.
+      4. 종류
+        1) var 변수 = document.getElementById(아이디)
+        2) var 배열 = document.getElementsByClassName(클래스)
+        3) var 배열 = document.getElementsByTagName(태그이름)
+        4) var 변수 = document.querySelector(선택자)
+        5) var 배열 = document.querySelectorAll(선택자)
+    */
+
+  </script>
+
+  <script>
+
+    /*
+      DOM 주의사항
+      DOM 구조(태그)를 상단에 배치하고, <script> 태그는 하단에 배치한다.
+    */
+   
+  </script>
+
+  <div class="wrap">
+    <div id="box1" class="primary-box">box1</div>
+    <div id="box2" class="primary-box">box2</div>
+    <div id="box3" class="primary-box">box3</div>
+  </div>
+  <script>
+    console.log(document.getElementById('box1'));
+    console.log(document.getElementsByClassName('primary-box'));
+    console.log(document.getElementsByTagName('div'));
+    console.log(document.querySelector('.wrap > #box1'));
+    console.log(document.querySelectorAll('.wrap > .primary-box'));
+  </script>
+
+
+  <div id="div1"><strong>안녕하세요</strong></div>
+  <script>
+    /* 내부 텍스트 : textContent 속성 */
+    console.log(document.getElementById('div1').textContent);
+    document.getElementById('div1').textContent = '<em>안녕하다</em>';
+    document.getElementById('div1').textContent += '<mark>반갑다</mark>';
+  </script>
+
+
+  <div id="div2"><strong>안녕하세요</strong></div>
+  <script>
+    /* 내부 요소 : innerHTML 속성 */
+    console.log(document.getElementById('div2').innerHTML);
+    document.getElementById('div2').innerHTML = '<em>안녕하다</em>';
+    document.getElementById('div2').innerHTML += '<mark>반갑다</mark>';
+  </script>
+
+
+  <div id="div3"><img src="../../assets/image/animal10.jpg" width="100px" height="100"></div>
+  <script>
+    /*
+      태그에 작성된 속성(attribute)
+      1. 가져오기
+        getAttribute(속성)
+      2. 수정하기
+        setAttribute(속성, 값)
+      3. 삭제하기
+        removeAttribute(속성)
+    */
+    console.log(document.querySelector('#div3 > img').getAttribute('src'));
+    document.querySelector('#div3 > img').setAttribute('src', '../../assets/image/flower1.jpg');
+    document.querySelector('#div3 > img').removeAttribute('width');
+    console.log(document.querySelector('#div3 > img').getAttribute('alt'));
+  </script>
+
+</body>
+</html>
