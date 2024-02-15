@@ -155,6 +155,51 @@
     console.log('Java', str.slice(-10, -6));   // 인덱스 -10 <= 문자열 < 인덱스 -6 (마지막 글자의 인덱스는 -1이다.)
     console.log('Script', str.slice(-6));      // 인덱스 -6 <= 문자열 끝까지
 
+    // 5. 특정 패턴을 가지는지 검사 결과를 반환
+    console.log(str.startsWith('Java'));  // 'Java'로 시작하면 true 반환
+    console.log(str.endsWith('Script'));  // 'Script'로 끝나면 true 반환
+    console.log(str.match(/[0-9]/));      // 정규식과 매칭하는 부분이 있으면 캡처된 결과의 첫 번째 요소를 배열로 반환하고 없으면 null 반환
+
+    // 6. 치환 결과를 반환
+    console.log(str.replace('a', '_'));         // 발견된 첫 번째 문자 a를 _로 치환
+    console.log(str.replaceAll(/[A-Z]/g, '_')); // 정규식을(대문자) 매칭하는 모든 부분을 _로 치환
+
+    // 7. 문자열 연결 결과 반환
+    console.log(str.concat('a', 'bc', 'def'));
+
+    // 8. 반복 결과 반환
+    console.log(str.repeat(3));
+
+    // 9. 대소문자 변환 결과 반환
+    console.log('대문자', str.toUpperCase());
+    console.log('소문자', str.toLowerCase());
+
+    // 10. 문자열 앞 뒤에 포함된 불필요한 공백 제거 결과 반환
+    var str = '   Java   Script   ';
+    console.log('앞뒤제거', str.trim());
+    console.log('앞제거', str.trimStart());  // alias trimLeft() 가능
+    console.log('뒤제거', str.trimEnd());    // alias trimRight() 가능
+
+    // 11. 문자열 앞 뒤에 특정 문자 채운 결과 반환
+    var str = 'JavaScript';
+    console.log('앞에채우기', str.padStart(15, '*'));  // 전체 15자리 중 부족한 부분은 *로 채우기
+    console.log('뒤에채우기', str.padEnd(15, '*'));
+
+    // 12. 문자열 객체 다루기
+    var str = new String('JavaScript');
+    console.log(str, typeof str);
+    console.log(str.valueOf(), typeof str.valueOf());
+
+    // 13. 문자열을 분리해서 배열 반환
+    var str = 'a,b,c,d,e';
+    var array = str.split(',');
+    console.log(array);
+    var str = array.join(',');
+    console.log(str);
+
+    // 활용. 특정 문자 모두 찾아 바꾸기
+    console.log(str.split(',').join(''));  // split(찾을문자).join(바꿀문자)
+
   </script>
 
 </body>
