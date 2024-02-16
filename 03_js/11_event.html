@@ -176,28 +176,55 @@
     <div><a href="javascript:myFunc2()">클릭</a></div>
   </div>
   <script>
-
+    
     function myFunc2(){
       alert('hello world');
     }
-
+    
     /*
       이벤트 방지
       1. HTML 구성 요소에 따라 기본 이벤트가 등록되어 있다.
       2. 이벤트 방지를 통해서 기본 이벤트의 동작을 막을 수 있다.
       3. 이벤트 객체의 preventDefault 메소드를 호출하면 기본 이벤트 동작을 막을 수 있다.
     */
-
-    document.querySelectorAll('#div4 a').forEach(function(aTag){
-      aTag.onclick = function(evt) {
-        if(evt.target.getAttribute('href').startsWith('javascript')){
-          evt.preventDefault();
+   
+   document.querySelectorAll('#div4 a').forEach(function(aTag){
+     aTag.onclick = function(evt) {
+       if(evt.target.getAttribute('href').startsWith('javascript')){
+         evt.preventDefault();
         }
       }
     })
-
+    
   </script>
 
+  <div id="div5">
+    <form action="/server/somewhere.do"
+          method="get">
+      <input type="text" name="query" id="query">
+      <input type="text" name="q" id="q">
+      <button type="submit">전송</button>
+    </form>
+  </div>
+  <script>
+
+    // 서브밋 이벤트 대상은 <form> 태그로 잡아야 한다.
+    document.querySelector('#div5 form').onsubmit = function(evt) {
+      if(document.getElementById('query').value === '') {
+        alert('입력1하시오.');
+        document.getElementById('query').focus();
+        evt.preventDefault();  // 서브밋을 막는다.
+        return;                // 이벤트 리스너(함수)의 실행을 종료한다.
+      }
+      if(document.getElementById('q').value === '') {
+        alert('입력2하시오.');
+        document.getElementById('q').focus();
+        evt.preventDefault();
+        return;
+      }
+    }
+
+  </script>
 
 </body>
 </html>
