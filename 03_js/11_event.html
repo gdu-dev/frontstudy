@@ -170,6 +170,34 @@
   </script>
 
 
+  <div id="div4">
+    <div><a href="https://www.google.com/">구글</a></div>
+    <div><a href="https://www.naver.com/">네이버</a></div>
+    <div><a href="javascript:myFunc2()">클릭</a></div>
+  </div>
+  <script>
+
+    function myFunc2(){
+      alert('hello world');
+    }
+
+    /*
+      이벤트 방지
+      1. HTML 구성 요소에 따라 기본 이벤트가 등록되어 있다.
+      2. 이벤트 방지를 통해서 기본 이벤트의 동작을 막을 수 있다.
+      3. 이벤트 객체의 preventDefault 메소드를 호출하면 기본 이벤트 동작을 막을 수 있다.
+    */
+
+    document.querySelectorAll('#div4 a').forEach(function(aTag){
+      aTag.onclick = function(evt) {
+        if(evt.target.getAttribute('href').startsWith('javascript')){
+          evt.preventDefault();
+        }
+      }
+    })
+
+  </script>
+
 
 </body>
 </html>
