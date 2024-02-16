@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button id="btn1">버튼1</button>
+  <div id="div1"></div>
+  <script>
+    /*
+      btn1을 클릭하면
+      <ul><li>봄</li><li>여름</li><li>가을</li><li>겨울</li></ul>
+      태그를 div1에 넣으시오.
+    */
+    var seasons = ['봄', '여름', '가을', '겨울'];
+
+  </script>
+
+  <hr>
+
+  <button id="btn2">버튼2</button>
+  <div id="div2"></div>
+  <script>
+    /*
+      btn2를 클릭하면 
+      <ul>
+        <li><a href="https://www.google.com/"><img src="../../assets/image/logo_google.png" width="192px"></a></li>
+        <li><a href="https://www.naver.com/"><img src="../../assets/image/logo_naver.png" width="192px"></a></li>
+        <li><a href="https://www.gdu.co.kr/"><img src="../../assets/image/logo_goodee.png" width="192px"></a></li>
+      </ul>
+      태그를 div2에 넣으시오.
+    */
+    var site = [
+      { url: 'https://www.google.com/', file: 'logo_google.png' },
+      { url: 'https://www.naver.com/', file: 'logo_naver.png' },
+      { url: 'https://www.gdu.co.kr/', file: 'logo_goodee.png' }
+    ];
+
+  </script>
+
+  <hr>
+
+  <button id="btn3">버튼3</button>
+  <div id="div3">
+    <input type="password" id="pw">
+  </div>
+  <script>
+    /*
+      btn3을 클릭할때마다
+      <input type="password" id="pw">와 <input type="text" id="pw">를 서로 바꾸시오.
+    */
+    
+  </script>
+
+  <hr>
+
+  <button id="btn4">버튼4</button>
+  <div id="div4">
+    <span id="year">0000</span>년
+    <span id="month">00</span>월
+    <span id="day">00</span>일
+    <span id="hour">00</span>시
+    <span id="minute">00</span>분
+    <span id="second">00</span>초
+  </div>
+  <script>
+    /*
+      btn4를 클릭하면 시계를 동작시키시오.
+    */
+
+  </script>
+
+  <hr>
+
+  <div id="div5">
+    <div>
+      <input type="checkbox" id="chk_all">
+      <label for="chk_all">전체선택</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_one" class="chk_each">
+      <label for="chk_one">개별선택1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_two" class="chk_each">
+      <label for="chk_two">개별선택2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_three" class="chk_each">
+      <label for="chk_three">개별선택3</label>
+    </div>
+  </div>
+  <script>
+    /*
+      전체 선택 / 개별 선택을 구현하시오.
+    */
+    
+  </script>
+
+</body>
+</html>
