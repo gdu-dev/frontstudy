@@ -60,5 +60,90 @@
     }
   </script>
 
+  <div>
+    <button id="btn-open">열기</button>
+  </div>
+  <script>
+    /*
+      var 객체 = window.open([url], [target], [windowfeature]);
+      1. url    : 열어 줄 창이 나타낼 URL
+      2. target : 열어 줄 창의 이름
+      3. windowfeature
+        1) 창 크기 : width, height
+        2) 창 위치 : top, bottom, left, right
+    */
+    var myWindow = window.open();
+    document.getElementById('btn-open').addEventListener('click', function() {
+      if(!myWindow) {
+        window.alert('팝업 차단을 해제해 주세요.');
+      }
+    })
+  </script>
+
+  <div>
+    <a id="link" href="https://www.gdu.co.kr/">링크</a>
+  </div>
+  <script>
+    var myWindow = null;
+    document.getElementById('link').addEventListener('click', function(evt) {
+      if(myWindow === null || myWindow.closed) {
+        myWindow = window.open(evt.target.href);
+      } else {
+        myWindow.focus();
+      }
+      evt.preventDefault();
+    })
+  </script>
+
+  <div>
+    <a id="link2" href="https://www.gdu.co.kr/" target="myWindowName">링크2</a>
+  </div>
+  <script>
+    var myWindow = null;
+    document.getElementById('link2').addEventListener('click', function(evt) {
+      if(myWindow === null || myWindow.closed) {
+        myWindow = window.open(evt.target.href, 'myWindowName');
+      } else {
+        myWindow.focus();
+      }
+      evt.preventDefault();
+    })
+  </script>
+
+  <div>
+    <form>
+      <input type="text" id="a">
+      <button id="btn" type="button">전송</button>
+    </form>
+  </div>
+  <script>
+
+    // 전역 객체 (모든 함수와 영역에서 접근할 수 있다.)
+    var popupWindow = null;
+
+    // 창 열기 함수 선언
+    function openWindow() {
+      if(popupWindow === null || popupWindow.closed) {
+        popupWindow = window.open('12_popup.html');
+      } else {
+        popupWindow.focus();
+      }
+    }
+
+    // 데이터 보내기 함수 선언
+    function sendData() {
+      // 12_popup.html 문서(객체 popupWindow) 본문을 모두 읽은 뒤에 처리하는 이벤트 : load 이벤트
+      popupWindow.onload = function() {
+        popupWindow.document.getElementById('b').textContent = window.document.getElementById('a').value;
+      }
+    }
+
+    // 클릭 이벤트
+    document.getElementById('btn').onclick = function() {
+      openWindow();
+      sendData();
+    }
+  </script>
+
 </body>
 </html>

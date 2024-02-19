@@ -15,8 +15,15 @@
       <ul><li>봄</li><li>여름</li><li>가을</li><li>겨울</li></ul>
       태그를 div1에 넣으시오.
     */
-    var seasons = ['봄', '여름', '가을', '겨울'];
-
+    document.getElementById('btn1').onclick = function() {
+      var seasons = ['봄', '여름', '가을', '겨울'];
+      var result = '<ul>';
+      for(var i = 0; i < seasons.length; i++) {
+        result += '<li>' + seasons[i] + '</li>';
+      }
+      result += '</ul>';
+      document.getElementById('div1').innerHTML = result;
+    }
   </script>
 
   <hr>
@@ -33,12 +40,23 @@
       </ul>
       태그를 div2에 넣으시오.
     */
-    var site = [
-      { url: 'https://www.google.com/', file: 'logo_google.png' },
-      { url: 'https://www.naver.com/', file: 'logo_naver.png' },
-      { url: 'https://www.gdu.co.kr/', file: 'logo_goodee.png' }
-    ];
-
+    document.getElementById('btn2').addEventListener('click', function() {      
+      var sites = [
+        { url: 'https://www.google.com/', file: 'logo_google.png' },
+        { url: 'https://www.naver.com/', file: 'logo_naver.png' },
+        { url: 'https://www.gdu.co.kr/', file: 'logo_goodee.png' }
+      ];
+      var result = '<ul>';
+      for(var i = 0; i < sites.length; i++) {
+        result += '<li>';
+        result += '<a href="' + sites[i].url + '">';
+        result += '<img src="../../assets/image/' + sites[i].file + '" width="192px">';
+        result += '</a>';
+        result += '</li>';
+      }
+      result += '</ul>';
+      document.getElementById('div2').innerHTML = result;
+    })
   </script>
 
   <hr>
@@ -52,7 +70,16 @@
       btn3을 클릭할때마다
       <input type="password" id="pw">와 <input type="text" id="pw">를 서로 바꾸시오.
     */
-    
+    document.getElementById('btn3').onclick = function() {
+      var inp = document.getElementById('pw');
+      // 태그 type 속성 : inp.getAttribute('type')
+      // 객체 type 속성 : inp.type
+      if(inp.type === 'password') {
+        inp.type = 'text';       // inp.setAttribute('type', 'text');
+      } else {
+        inp.type = 'password';
+      }
+    }
   </script>
 
   <hr>
@@ -70,7 +97,19 @@
     /*
       btn4를 클릭하면 시계를 동작시키시오.
     */
-
+    document.getElementById('btn4').addEventListener('click', function() {
+      watch();
+      setInterval(watch, 1000);
+    })
+    function watch() {
+      var now = new Date();
+      document.getElementById('year').textContent = now.getFullYear();
+      document.getElementById('month').textContent = String(now.getMonth() + 1).padStart(2, '0');
+      document.getElementById('day').textContent = String(now.getDate()).padStart(2, '0');
+      document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
+      document.getElementById('minute').textContent = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('second').textContent = String(now.getSeconds()).padStart(2, '0');
+    }
   </script>
 
   <hr>
@@ -97,8 +136,26 @@
     /*
       전체 선택 / 개별 선택을 구현하시오.
     */
-    
+    // 전체 선택
+    var chkAll = document.getElementById('chk_all');
+    // 개별 선택
+    var chkEach = document.getElementsByClassName('chk_each');
+    // 이벤트1. 전체 선택을 클릭하면 개별 선택이 함께 바뀐다.
+    chkAll.onclick = function(evt) {
+      for(var i = 0; i < chkEach.length; i++) {
+        chkEach[i].checked = evt.target.checked;
+      }
+    }
+    // 이벤트2. 개별 선택을 클릭하면 전체 선택에 영향을 미친다.
+    for(var i = 0; i < chkEach.length; i++) {
+      chkEach[i].onclick = function(evt) {
+        var total = 0;
+        for(var j = 0; j < chkEach.length; j++) {
+          total += chkEach[j].checked;
+        }
+        chkAll.checked = (total === chkEach.length);
+      }
+    }
   </script>
-
 </body>
 </html>
