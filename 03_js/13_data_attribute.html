@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    /*
+      data 속성(attribute)
+
+      1. HTML 구성 요소의 data-* 속성은 데이터를 저장하기 위한 속성이다.
+      2. 모든 data-* 속성은 DOM의 dataset 속성에 저장된다.
+      3. data-* 속성 확인
+           HTML               JavaScript
+        1) data-aaa=""        dataset.aaa
+        2) data-aaa-bbb=""    dataset.aaaBbb  (dash 구분자는 자동으로 camel-cased 처리된다.)
+        3) data-aaaBbb=""     dataset.aaabbb  (대문자는 소문자로 처리된다.)
+    */
+
+  </script>
+  
+  
+  <div id="div1" data-name="tom" data-age="30" data-home-address="newyork">TOM</div> 
+  <script>
+    var div1 = document.getElementById('div1');
+    console.log('data-name:', div1.dataset.name);
+    console.log('data-age:', div1.dataset.age);
+    console.log('data-home-address:', div1.dataset.homeAddress);
+  </script>
+
+  <div id="div2">JESSICA</div>
+  <script>
+    var div2 = document.getElementById('div2');
+    div2.dataset.mobile = '010-1111-1111';
+    div2.dataset.dayOfBirth = '1990-01-01';
+  </script>
+
+</body>
+</html>
