@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      BOM
+      1. Browser Object Model (브라우저 객체 모델)
+      2. 브라우저의 구성 요소를 객체로 처리하는 방식이다.
+      3. 브라우저 객체는 내장 객체로 이미 만들어져 있다.
+      4. 주요 브라우저 객체
+        1) screen   : 브라우저 화면 정보
+        2) history  : 방문했던 경로를 처리하는 객체
+        3) location : 주소(URL)를 처리하는 객체
+        4) window   : 브라우저 창 자체를 의미하는 객체 (모든 JavaScript 객체의 최상위 객체이고, 생략할 수 있다.)
+    */
+
+  </script>
+
+  <script>
+    document.write('<h1>화면 너비 : ' + screen.width + '</h1>');
+    document.write('<h1>가용 너비 : ' + screen.availWidth + '</h1>');
+    document.write('<h1>화면 높이 : ' + screen.height + '</h1>');
+    document.write('<h1>가용 높이 : ' + screen.availHeight + '</h1>');
+  </script>
+
+  <div>
+    <div><button id="btn1">뒤로</button></div>
+    <div><button id="btn2">앞으로</button></div>
+    <div><button id="btn3">뒤로</button></div>
+    <div><button id="btn4">앞으로</button></div>
+  </div>
+  <script>
+    document.getElementById('btn1').onclick = function() {
+      history.back();
+    }
+    document.getElementById('btn2').onclick = function() {
+      history.forward();
+    }
+    document.getElementById('btn3').addEventListener('click', function() {
+      history.go(-1);
+    })
+    document.getElementById('btn4').addEventListener('click', function() {
+      history.go(1);
+    })
+  </script>
+
+</body>
+</html>
