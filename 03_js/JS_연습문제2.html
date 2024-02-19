@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="div1"></div>
+  <button id="btn1">버튼1</button>
+  <style>
+    #div {
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+  <script>
+    /*
+      btn1을 클릭하면 0.5초마다 임의의 색상으로 div1의 색상을 변경하시오.
+    */
+
+  </script>
+
+  <hr>
+
+  <div id="div2">
+    <table border="1">
+      <thead>
+        <tr><td>번호</td><td>썸네일</td><td>제목</td><td>감독</td></tr>
+      </thead>
+      <tbody id="movies"></tbody>
+    </table>
+  </div>
+  <button id="btn2">가져오기</button>
+  <script>
+    /*
+      btn2를 클릭하면 테이블을 완성하시오.
+      번호   썸네일    제목     감독
+
+    */
+    var movies = {
+      year: 2023,
+      genre: 'action',
+      items: [
+        {
+          no: '20235034',
+          thumbnail: 'https://www.kobis.or.kr/common/mast/movie/2023/11/thumb_x192/thn_65a860f7dfb04c449f4a0f0d3207edee.jpg',
+          title: '더 마블스',
+          director: '니아 다코스타'
+        },
+        {
+          no: '20218935',
+          thumbnail: 'https://www.kobis.or.kr/common/mast/movie/2023/08/thumb_x192/thn_b9b13d4a5ce94150a8ee0522f60b978f.jpg',
+          title: '더 문',
+          director: '김용화'
+        },
+        {
+          no: '20232631',
+          thumbnail: 'https://www.kobis.or.kr/common/mast/movie/2023/06/thumb_x192/thn_fbc864b8a3f64ee98e22372534a81cec.jpg',
+          title: '미션 임파서블:데드 레코닝 PART ONE',
+          director: '크리스토퍼 맥쿼리'
+        }
+      ]
+    }
+
+  </script>
+
+  <hr>
+
+  <div id="div3"></div>
+  <input type="text" id="number" placeholder="값">
+  <input type="text" id="digit" placeholder="자리수">
+  <input type="text" id="result" placeholder="결과" readonly>
+  <button id="btn3">계산</button>
+  <script>
+    /*
+      btn3를 클릭하면 number에 입력된 값을 digit에 입력된 자리수로 반올림한 결과를 출력하시오.
+      예시)
+      number    digit   result
+      555.555   2       555.56
+      555.555   1       555.6
+      555.555   0       556
+      555.555   생략    556
+      555.555   -1      560
+      555.555   -2      600
+      555.555   -3      1000
+    */
+    
+  </script>
+  
+  <hr>
+
+
+
+</body>
+</html>
