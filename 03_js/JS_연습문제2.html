@@ -179,9 +179,34 @@
       Hint) 남은 시간 = 디데이's 타임스탬프 - 현재's 타임스탬프
       타임스탬프로 계산된 남은 시간은 일/시/분/초 단위로 변환 후 처리한다.
     */
-    
+    function ex05() {
+      var now = new Date();
+      var dday = new Date(2024, 10, 14);  // 2024-11-14
+      var remainMillis = dday.getTime() - now.getTime();
+      var remainSeconds = parseInt(remainMillis / 1000);
+      var day = parseInt(remainSeconds / 60 / 60 / 24);
+      var msg = 'D-DAY';
+      if(remainSeconds < 0) {
+        msg += '가 지났습니다.';
+      } else {
+        if(day >= 1) {
+          msg += '&nbsp;' + day + '일';
+        } else {
+          var hour = parseInt(remainSeconds / 60 / 60) % 24;
+          var minute = parseInt(remainSeconds / 60) % 60;
+          var second = remainSeconds % 60;
+          msg += '&nbsp;'
+              + String(hour).padStart(2,'0')
+              + ':'
+              + String(minute).padStart(2,'0')
+              + ':'
+              + String(second).padStart(2,'0');
+        }
+      }
+      document.getElementById('div5').innerHTML = msg;
+    }
+    setInterval(ex05, 1000);
   </script>
-
 
 </body>
 </html>
