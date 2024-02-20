@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    /*
+      정규식(regular expression)
+
+      1. 어떤 문자열이 특정 패턴을 가지고 있는지 확인하기 위한 표현식이다.
+      2. JavaScript 정규식 표현 방법
+        /정규식/
+      3. JavaScript 정규식 메소드
+        /정규식/.test(문자열) : 정규식 패턴을 가지고 있으면 true 반환, 아니면 false 반환
+    */
+  </script>
+
+  <script>
+    /*
+      정규식 메타 문자
+      
+      1. 정규식에서 특별한 의미를 가진 문자를 의미한다.
+      2. 주요 메타 문자
+        1) .
+          (1) 모든 단일문자
+          (2) b.at : baat, bbat, bcat, bdat, ... / 불가 bat, baaat
+        2) *
+          (1) 0개 이상의 반복 문자
+          (2) goo* : go, god, good, goood, ...
+        3) +
+          (1) 1개 이상의 반복 문자
+          (2) goo+ : goo, good, goood, ...
+        4) ^
+          (1) 시작이 일치하는 문자
+          (2) ^a   : app, apple, asia, africa, ...
+        5) $
+          (1) 끝이 일치하는 문자
+          (2) end$ : end, the end, ... / 불가 ending
+        6) ?
+          (1) 0개 이상의 문자
+          (2) colou?r : color, colour
+        7) ()
+          (1) 괄호 내의 문자를 문자 패턴으로 간주 (그룹)
+          (2) (app)A? : appA, appappA, appappappA, ...
+        8) |
+          (1) 또는
+          (2) a(b|c) : ab, ac
+        9) \
+          (1) 이스케이프, 역슬래시 뒤에 오는 메타 문자를 일반 문자로 간주
+          (2) \*, \., \?, ...
+        10) {m}
+          (1) 정확히 m개 문자 (0 <= m <= 255)
+          (2) a{3} : aaa
+        11) {m,}
+          (1) m개 이상 문자 (0 <= m <= 255)
+          (2) a{3,} : aaa, aaaa, aaaaa, ...
+        12) {m,n}
+          (1) m개 이상 n개 이하 문자 (0 <= m <= 255)
+          (2) a{2,3} : aa, aaa
+    */
+  </script>
+
+  <div id="div1">
+    <input type="text">
+    <button type="button" onclick="myFunc1()">검사</button>
+  </div>
+  <script>
+    function myFunc1() {
+      var regExpr = /^b.at$/;
+      if(regExpr.test(document.querySelector('#div1 > input').value)) {
+        alert('패턴 일치');
+      } else {
+        alert('패턴 불일치');
+      }
+    }
+  </script>
+
+  <script>
+
+    /*
+      대괄호 표현식
+
+      1. 단일 문자 또는 조합 요소를 나타낼 때 사용한다.
+      2. 사용 방법 예시
+        1) [.]   : 문자 .
+        2) [a]   : 문자 a
+        3) [ab]  : 문자 a 또는 문자 b
+        4) [^a]  : 문자 a가 아닌 모든 문자
+           ^[a]  : 문자 a로 시작
+        5) [a-d] : 문자 a부터 문자 d까지 (a, b, c, d 중 하나)
+           [a-]  : 문자 a 또는 문자 -
+           [-a]  : 문자 - 또는 문자 a
+        6) [][ab]: 문자 [ 또는 문자 ] 또는 문자 a 또는 문자 b
+    */
+
+  </script>
+
+  <div id="div2">
+    <input type="text">
+    <button type="button" onclick="myFunc2()">검사</button>
+  </div>
+  <script>
+    function myFunc2() {
+      var regExpr = /^[A-Za-z]+$/;
+      if(regExpr.test(document.querySelector('#div2 > input').value)) {
+        alert('패턴 일치');
+      } else {
+        alert('패턴 불일치');
+      }
+    }
+  </script>
+
+  <script>
+
+    // 숫자
+    var regNumber = /[0-9]/;
+
+    // 알파벳
+    var regAlphabet = /[A-Za-z]/;
+
+    // 한글
+    var regHangul = /[ㄱ-ㅣ가-힣]/;
+
+    // 특수문자
+    var regSpecial = /[^0-9A-Zz-a]/;
+
+  </script>
+
+  <script>
+
+    // Naming Convension 기준 
+
+    // 클래스명
+    var regClass = /[A-Z][A-Za-z0-9_$]*/;
+
+    // 변수명, 메소드명
+    var regVariable = /[a-z][A-Za-z0-9_$]*/;
+
+    // 상수
+    var regFinal = /[A-Z][A-Z0-9_$]+/;
+
+  </script>
+
+  <hr>
+
+  <div id="div3">
+    <input type="text">
+    <button type="button" onclick="myFunc3()">검사</button>
+  </div>
+  <script>
+
+    function myFunc3() {
+
+      var inp = document.querySelector('#div3 > input').value;
+
+      var regIpAddr = /^((([0-9]{1,2})|(1[0-9]{2})|(2[0-4][0-9])|(25[0-5]))\.){3}((([0-9]{1,2})|(1[0-9]{2})|(2[0-4][0-9])|(25[0-5])))$/;  // 192.168.0.255
+      if(regIpAddr.test(inp)){
+        alert('IP주소 맞다.');
+      } else {
+        alert('IP주소 아니다.');
+      }
+
+      /*
+      var regMobile = /^010-{0,1}[0-9]{4}-{0,1}[0-9]{4}$/;
+      if(regMobile.test(inp)) {
+        alert('휴대전화 맞다.');
+      } else {
+        alert('휴대전화 아니다.');
+      }
+      */
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="div1">
+    <div><img src="../../assets/image/light1.png" width="50px"></div>
+    <div><button id="btn1" type="button" style="width: 60px; text-align: center;">ON</button></div>
+  </div>
+  <script>
+    /* 
+      btn1을 클릭할때마다
+      light1.png, light2.png 이미지를 교환하고
+      btn1의 ON, OFF 텍스트를 교환하시오.
+    */
+
+  </script>
+
+  <hr>
+
+  <div id="div2">
+    <div id="img-slide">
+      <button id="btn-prev" type="button">이전</button>
+      <span id="img-no">1 / 10</span>
+      <button id="btn-prev" type="button">이전</button>
+    </div>
+    <div id="img-container"></div>
+  </div>
+  <style>
+    #div, #div div {
+      box-sizing: border-box;
+    }
+    #div2 {
+      width: 576px;
+      height: 414px;
+      margin: 10px auto;
+    }
+    #img-slide {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #img-container {
+      width: 576px;
+      height: 384px;
+      background-image: url('../../assets/image/animal1.jpg');
+      background-size: cover;
+    }
+  </style>
+  <script>
+    /* animal1.jpg ~ animal10.jpg 를 이용하여 이미지 슬라이드를 만드시오. */
+
+  </script>
+
+  <hr>
+
+  <div id="div3">
+    <div id="original-image"></div>
+    <div id="thumbnail-images">
+      <div style="background-image: url('../../assets/image/architecture1.jpg');"></div>
+      <div style="background-image: url('../../assets/image/architecture2.jpg');"></div>
+      <div style="background-image: url('../../assets/image/architecture3.jpg');"></div>
+      <div style="background-image: url('../../assets/image/architecture4.jpg');"></div>
+      <div style="background-image: url('../../assets/image/architecture5.jpg');"></div>
+    </div>
+  </div>
+  <style>
+    #div3 {
+      width: 576px;
+      height: 304px;
+      margin: 10px auto;
+    }
+    #original-image {
+      width: 384px;
+      height: 256px;
+      margin: 10px auto;
+      background-image: url('../../assets/image/architecture1.jpg');
+      background-size: 100%;
+    }
+    #thumbnail-images {
+      width: 384px;
+      margin: 10px auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    #thumbnail-images > div {
+      width: 45px;
+      height: 25px;
+      border: 5px solid rgba(0, 0, 0, 0);
+      background-size: cover;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <script>
+    /* 5개 thumbnail 이미지에 마우스를 가져다대면 해당 이미지를 original-image로 표시하시오. */
+    
+  </script>
+
+  <hr>
+
+  <div id="div4">
+    <div>
+      <input type="checkbox" id="chk_all">
+      <label for="chk_all">전체선택</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_one" class="chk_each">
+      <label for="chk_one">개별선택1</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_two" class="chk_each">
+      <label for="chk_two">개별선택2</label>
+    </div>
+    <div>
+      <input type="checkbox" id="chk_three" class="chk_each">
+      <label for="chk_three">개별선택3</label>
+    </div>
+  </div>
+  <style>
+    /* 
+      CSS 문제.
+      해제하면 check1.png를 checkbox 대신 나타내시오.
+      체크하면 check2.png를 checkbox 대신 나타내시오.
+    */
+    
+  </style>
+  <script>
+    var chkAll = document.getElementById('chk_all');
+    var chkEach = document.getElementsByClassName('chk_each');
+    chkAll.onclick = function(evt) {
+      for(var i = 0; i < chkEach.length; i++) {
+        chkEach[i].checked = evt.target.checked;
+      }
+    }
+    for(var i = 0; i < chkEach.length; i++) {
+      chkEach[i].onclick = function(evt) {
+        var total = 0;
+        for(var j = 0; j < chkEach.length; j++) {
+          total += chkEach[j].checked;
+        }
+        chkAll.checked = (total === chkEach.length);
+      }
+    }
+  </script>
+
+</body>
+</html>
