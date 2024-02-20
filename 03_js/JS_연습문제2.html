@@ -10,17 +10,30 @@
   <div id="div1"></div>
   <button id="btn1">버튼1</button>
   <style>
-    #div {
+    #div1 {
       width: 100px;
       height: 100px;
     }
   </style>
   <script>
     /*
-      btn1을 클릭하면 0.5초마다 임의의 색상으로 div1의 색상을 변경하시오.
+      btn1을 클릭하면 0.1초마다 임의의 색상으로 div1의 색상을 변경하시오.
       Hint) rgb(0,0,0) ~ rgb(255,255,255) 방식으로 색상을 표현한다.
     */
-
+    function getRandomNumber(begin, count) {
+      return parseInt(Math.random() * count + begin);
+    }
+    function ex01() {
+      document.getElementById('btn1').addEventListener('click', function(){
+        document.getElementById('div1').style.backgroundColor
+          = 'rgb(' + getRandomNumber(0,256) + ',' + getRandomNumber(0,256) + ',' + getRandomNumber(0,256) + ')';
+        setInterval(function(){
+          document.getElementById('div1').style.backgroundColor
+            = 'rgb(' + getRandomNumber(0,256) + ',' + getRandomNumber(0,256) + ',' + getRandomNumber(0,256) + ')';
+        }, 100);
+      })
+    }
+    ex01();
   </script>
 
   <hr>
