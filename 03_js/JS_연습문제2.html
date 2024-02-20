@@ -95,14 +95,15 @@
 
   <hr>
 
-  <div id="div3"></div>
-  <input type="text" id="number" placeholder="값">
-  <input type="text" id="digit" placeholder="자리수">
-  <input type="text" id="result" placeholder="결과" readonly>
-  <button id="btn3">계산</button>
+  <div id="div3">
+    <input type="text" id="number" placeholder="값">
+    <input type="text" id="digit" placeholder="자리수">
+    <input type="text" id="result" placeholder="결과" readonly>
+    <button id="btn3">계산</button>
+  </div>
   <script>
     /*
-      btn3를 클릭하면 number에 입력된 값을 digit에 입력된 자리수로 반올림한 결과를 출력하시오.
+      btn3를 클릭하면 number에 입력된 값을 digit에 입력된 자리수로 올림한 결과를 출력하시오.
       예시)
       number    digit   result
       555.555   2       555.56
@@ -113,7 +114,31 @@
       555.555   -2      600
       555.555   -3      1000
     */
-    
+    /*
+      Math.ceil(number * Math.pow(10, digit)) / Math.pow(10, digit)
+      --------------------------------------------------------------
+      Math.ceil(555.555 * 100)  / 100  === 555.56
+      Math.ceil(555.555 * 10)   / 10   === 555.6
+      Math.ceil(555.555 * 1)    / 1    === 556
+      Math.ceil(555.555 * 0.1)  / 0.1  === 560
+      Math.ceil(555.555 * 0.01) / 0.01 === 600
+    */
+    function myCeil(number, digit) {
+      digit = digit || 0;
+      return Math.ceil(number * Math.pow(10, digit)) / Math.pow(10, digit);
+    }
+    function ex03() {
+      document.getElementById('btn3').addEventListener('click', function(){
+        var number = document.getElementById('number').value;
+        var digit = document.getElementById('digit').value;
+        if(isNaN(number) || isNaN(digit)) {
+          alert('숫자만 입력하세요');
+          return;
+        }
+        document.getElementById('result').value = myCeil(number, digit);
+      })
+    }
+    ex03();
   </script>
   
   <hr>
@@ -130,8 +155,14 @@
     }
   </style>
   <script>
-    /* 5초마다 자동으로 div4의 배경 이미지를 변경하시오. (animal1.jpg ~ animal10.jpg 중 하나 사용)
-
+    /* 5초마다 자동으로 div4의 배경 이미지를 변경하시오. (animal1.jpg ~ animal10.jpg 중 하나 사용) */
+    function ex04() {
+      setInterval(function(){
+        document.getElementById('div4').style.backgroundImage
+          = 'url(../../assets/image/animal' + getRandomNumber(1,10) + '.jpg)';
+      }, 5000);
+    }
+    ex04();
   </script>
 
   <hr>
