@@ -62,10 +62,45 @@
       xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos/1', true);
 
       // 요청 헤더 값 설정 (필요하면 설정한다.)
-      xhr.setRequestHeader();
+      // xhr.setRequestHeader(name, value);
 
       // 요청 전송 (비동기 통신의 경우 즉시 응답된다.)
       xhr.send();
+
+      // 서버 응답에 따른 이벤트 리스너 호출
+      xhr.addEventListener('readystatechange', function(){
+
+        // 1. readyState 속성 (요청 상태를 정수 값으로 저장하는 속성)
+        //   1) 0 : 클라이언트 생성(open() 호출 이전), UNSENT
+        //   2) 1 : 요청 생성(open() 호출), OPENED
+        //   3) 2 : 요청 전송(send() 호출), HEADERS_RECEIVED
+        //   4) 3 : 응답 다운로드 중, LOADING
+        //   5) 4 : 완료, DONE
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+
+        // 2. status 속성 (응답 HTTP 상태 코드)
+        if(xhr.status !== 200) {
+          console.log('응답 메시지', xhr.statusText);
+          return;
+        }
+
+        // 3. 응답 데이터 형식에 따른 속성
+        //   1) 응답 텍스트 : responseText, 텍스트 반환
+        //   2) 응답 XML    : responseXML,  XMLDocument 반환
+        var resData = JSON.parse(xhr.responseText);
+        var result = '<div class="album">';
+        result += '<div>앨범아이디:' + resData.albumId + '</div>';
+        result += '<div>아이디:' + resData.id + '</div>';
+        result += '<div>제목:' + resData.title + '</div>';
+        result += '<div><a href="' + resData.url + '" target="_blank">앨범이미지</a></div>';
+        result += '<div><img src="' + resData.thumbnailUrl + '"></div>';
+        result += '</div>';
+
+        // 4. 응답 데이터 화면에 표시
+        document.getElementById('contents1').innerHTML = result;
+
+      })
 
     }
 
