@@ -213,6 +213,55 @@
   </style>
   <script>
 
+    function ex04() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://thetestrequest.com/authors.xml');
+      xhr.send();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+        if(xhr.status !== 200)
+          return;
+        var resData = xhr.responseXML;
+        var objects = resData.getElementsByTagName('object');
+        var result = '';
+        for(var i = 0; i < objects.length; i++) {
+          result += '<div class="author">';
+          result += '  <div>id:' + objects[i].getElementsByTagName('id')[0].textContent + '</div>';
+          result += '  <div>name:' + objects[i].getElementsByTagName('name')[0].textContent + '</div>';
+          result += '  <div>email:' + objects[i].getElementsByTagName('email')[0].textContent + '</div>';
+          result += '  <div>created-at:' + objects[i].getElementsByTagName('created-at')[0].textContent + '</div>';
+          result += '  <div>updated-at:' + objects[i].getElementsByTagName('updated-at')[0].textContent + '</div>';
+          result += '  <div><img src="' + objects[i].getElementsByTagName('avatar')[0].textContent + '" width="150px"></div>';
+          result += '</div>';
+        }
+        document.getElementById('contents4').innerHTML = result;
+      }
+    }
+
+    document.getElementById('btn4').onclick = ex04;
+
+  </script>
+
+  <hr>
+
+  <button id="btn5">공공데이터요청</button>
+  <script>
+    
+    function ex05() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath?searchYear=2020&siDo=1100&guGun=1116&type=json&numOfRows=20&pageNo=1&serviceKey=bEQBRPHjt0tZrc7EsL0T8usfsZ1%2BwT%2B5jqamBef%2FErC%2F5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ%3D%3D');
+      xhr.send();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+        if(xhr.status !== 200)
+          return;
+        var resData = JSON.parse(xhr.responseText);
+        console.log(resData);
+      }
+    }
+    document.getElementById('btn5').onclick = ex05;
   </script>
 
 </body>
