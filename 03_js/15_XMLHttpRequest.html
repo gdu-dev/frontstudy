@@ -154,5 +154,66 @@
 
   </script>
 
+  <hr>
+
+  <div id="div3">
+    <button type="button" id="btn3">요청3</button>
+    <div id="contents3"></div>
+  </div>
+  <script>
+    function ex03() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://thetestrequest.com/authors/1.xml');
+      xhr.send();
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+        if(xhr.status !== 200)
+          return;
+        var resData = xhr.responseXML;
+        var result = '<div>';
+        result += '<div>id:' + resData.getElementsByTagName('id')[0].textContent + '</div>';
+        result += '<div>id_type:' + resData.getElementsByTagName('id')[0].getAttribute('type') + '</div>';
+        result += '<div>name:' + resData.getElementsByTagName('name')[0].textContent + '</div>';
+        result += '<div><img src="' + resData.getElementsByTagName('avatar')[0].textContent + '"></div>';
+        result += '<div>created-at:' + resData.getElementsByTagName('created-at')[0].textContent + '</div>';
+        result += '<div>updated-at:' + resData.getElementsByTagName('updated-at')[0].textContent + '</div>';
+        result += '</div>';
+        document.getElementById('contents3').innerHTML = result;
+      }
+    }
+    document.getElementById('btn3').onclick = ex03;
+  </script>
+
+  <hr>
+
+  <div><button type="button" id="btn4">요청4</button></div>
+  <div id="div4">
+    <div id="contents4"></div>
+  </div>
+  <style>
+    #div4 {
+      width: 1000px;
+    }
+    #contents4 {
+      width: 1000px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    #contents4 > .author {
+      width: 300px;
+      height: 300px;
+      border: 1px solid gray;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #contents4 > .author:hover {
+      background-color: beige;
+    }
+  </style>
+  <script>
+
+  </script>
+
 </body>
 </html>
