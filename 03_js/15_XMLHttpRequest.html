@@ -108,5 +108,51 @@
 
   </script>
 
+  <hr>
+
+  <div id="div2">
+    <div>
+      <input type="text" id="begin" placeholder="시작NO">
+      <input type="text" id="end" placeholder="종료NO">
+      <button type="button" id="btn2">요청2</button>
+    </div>
+    <table border="1">
+      <thead>
+        <tr><td>앨범썸네일</td><td>앨범아이디</td><td>아이디</td><td>앨범제목(클릭하면 앨범이미지 오픈)</td></tr>
+      </thead>
+      <tbody id="contents2"></tbody>
+    </table>
+  </div>
+  <script>
+
+    function ex02() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos', true);
+      xhr.send();
+      xhr.addEventListener('readystatechange', function(){
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+        if(xhr.status !== 200)
+          return;
+        var resData = JSON.parse(xhr.responseText);
+        var begin = document.getElementById('begin').value || 1;
+        var end   = document.getElementById('end').value || 10;
+        var result = '';
+        for(var i = begin - 1; i < end; i++) {
+          result += '<tr>';
+          result += '<td><img src="' + resData[i].thumbnailUrl + '" width="50px"></td>';
+          result += '<td>' + resData[i].albumId + '</td>';
+          result += '<td>' + resData[i].id + '</td>';
+          result += '<td><a href="' + resData[i].url + '" target="_blank">' + resData[i].title + '</a></td>';
+          result += '</tr>';
+        }
+        document.getElementById('contents2').innerHTML = result;
+      })
+    }
+
+    document.getElementById('btn2').addEventListener('click', ex02);
+
+  </script>
+
 </body>
 </html>
