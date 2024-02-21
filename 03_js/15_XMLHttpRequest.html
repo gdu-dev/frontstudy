@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    /*
+      동기 통신(Synchronous)
+      1. 요청하고 응답 받을때까지 새로운 요청을 하지 않는 방식이다.
+      2. 개념
+        client           server
+            A  →→→→→→→→→→→→ A
+          ACK ←←←←←←←←←←←← A 성공
+            B  →→→→→→→→→→→→ B
+          NAK ←←←←←←←←←←←← B 실패
+            B  →→→→→→→→→→→→ B
+          ACK ←←←←←←←←←←←← B 성공
+            C  →→→→→→→→→→→→ C
+          ...
+    */
+    /*
+      비동기 통신(Asynchronous)
+      1. 응답을 기다리지 않고 새로운 요청을 보내는 방식이다.
+      2. 개념
+        client           server
+            A  →→→→→→→→→→→→ A
+            B  →→→→→→→→→→→→ B
+            C  →→→→→→→→→→→→ C
+           ACK ←←←←←←←←←←←← A 성공
+           NAK ←←←←←←←←←←←← B 실패
+            B  →→→→→→→→→→→→ B
+           ACK ←←←←←←←←←←←← B 성공
+          ...
+    */
+  </script>
+
+
+  <div id="div1">
+    <button type="button" id="btn1">요청1</button>
+    <div id="contents1"></div>
+  </div>
+  <script>
+
+    /* JSON 데이터를 가상으로 제공하는 Fake API : https://jsonplaceholder.typicode.com/ */
+
+    function ex01() {
+
+      /* 비동기 요청 */
+
+      // 비동기 통신을 수행하는 JavaScript 객체 생성
+      var xhr = new XMLHttpRequest();
+
+      // 요청 생성 (초기화)
+      // open(RequestMethod, URL, [Sync/Async], [user], [password])
+      // 1) RequestMethod : 요청 메소드 (GET, POST, PUT, DELETE 등)
+      // 2) URL           : 서버 경로
+      // 3) Sync/Async    : 동기(Sync)는 false, 비동기(Async)는 true(디폴트)
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos/1', true);
+
+      // 요청 헤더 값 설정 (필요하면 설정한다.)
+      xhr.setRequestHeader();
+
+      // 요청 전송 (비동기 통신의 경우 즉시 응답된다.)
+      xhr.send();
+
+    }
+
+    document.getElementById('btn1').addEventListener('click', ex01);
+
+  </script>
+
+</body>
+</html>
