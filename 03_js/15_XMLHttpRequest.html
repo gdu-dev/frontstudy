@@ -250,7 +250,7 @@
     
     function ex05() {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath?searchYear=2020&siDo=1100&guGun=1116&type=json&numOfRows=20&pageNo=1&serviceKey=bEQBRPHjt0tZrc7EsL0T8usfsZ1%2BwT%2B5jqamBef%2FErC%2F5ZO6N7nYdRmrwR91bh5d3I1AQeY5qdbJOF6Kv0U1CQ%3D%3D');
+      xhr.open('GET', 'http://apis.data.go.kr/B552061/AccidentDeath/getRestTrafficAccidentDeath?searchYear=2020&siDo=1100&guGun=1116&type=json&numOfRows=20&pageNo=1&serviceKey=인코딩인증키');
       xhr.send();
       xhr.onreadystatechange = function(){
         if(xhr.readyState !== XMLHttpRequest.DONE)
