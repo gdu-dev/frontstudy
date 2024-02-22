@@ -211,17 +211,120 @@
 
   </script>
 
+  <script>
+
+    const fnPromise1 = (url)=>{
+      return new Promise((resolve, reject)=>{
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.send();
+        // load 이벤트 : XMLHttpRequest 트랜잭션 성공 시 발생하는 이벤트
+        xhr.addEventListener('load', ()=>{
+          resolve(JSON.parse(xhr.responseText));
+        })
+        // error 이벤트 : 실패 시 발생하는 이벤트
+        xhr.addEventListener('error', ()=>{
+          reject(xhr.statusText);
+        })
+      });
+    }
+
+    fnPromise1('https://jsonplaceholder.typicode.com/photos/1')
+      .then((resData)=>{
+        console.log(resData);
+      }, (msg)=>{
+        console.log(msg);
+      });
+
+  </script>
+
+  <script>
+
+    const fnPromise2 = (method, url)=>{
+      return new Promise((resolve, reject)=>{
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.send();
+        xhr.addEventListener('load', ()=>resolve(xhr.responseXML));
+        xhr.addEventListener('error', ()=>reject(xhr.statusText));
+      });
+    }
+
+    fnPromise2('GET', 'https://thetestrequest.com/authors/1.xml')
+      .then((resData)=>{
+        console.log(resData);  // XMLDocument 출력
+      }, (msg)=>{
+        console.log(msg);
+      });
+
+  </script>
+
+  <script>
+
+    /*
+      fetch() 전역 함수
+      1. 네트워크에서 자원(리소스) 취득을 시작한 뒤 응답이 가능한 상태가 되면 이를 이행하는 Promise를 반환한다.
+      2. Response 객체를 이행 함수에 전달한다. (이행한다.)
+      3. Response 객체가 가진 데이터를 반환하는 메소드
+        1) json() : JSON 데이터를 이행하는 Promise 반환
+        2) text() : 텍스트 데이터를 이행하는 Promise 반환
+        3) blob() : 바이너리(블롭) 데이터를 이행하는 Promise 반환
+      4. 형식
+        fetch(resource, [options])
+        1) resource : 일반적으로 URL 또는 Request 객체
+        2) options
+          (1) method  : 요청 메소드 (GET, POST, PUT, DELETE 등)
+          (2) headers : 요청 헤더
+          (3) body    : 요청 본문 (주로 blob, FormData 등)
+          (4) mode    : 요청 모드 (cors, no-cors, same-origin)
+          (5) cache   : HTTP 캐시 (no-cache, force-cache 등)
+    */
+
+    // options
+    const options = {
+      method: 'GET'
+    }
+
+    // JSON
+    fetch('https://jsonplaceholder.typicode.com/photos/1', options)
+      .then((response)=>{
+        // 실제 응답 성공 여부를 처리하기를 권장
+        if(response.ok) {
+          return response.json();
+        }
+      })
+      .then((resData)=>{
+        console.log(resData);
+      });
+
+    fetch('https://jsonplaceholder.typicode.com/photos/1', options)
+      .then(response=>response.json())
+      .then(resData=>{
+        console.log(resData);
+      });
+
+    // XML
+    fetch('https://thetestrequest.com/authors/1.xml', options)
+      .then((response)=>{
+        if(response.ok)
+          return response.text();
+      })
+      .then((resData)=>{
+        // parseFromString(string, mime-type)
+        // mime-type
+        //   1) text/plain       : 텍스트 데이터
+        //   2) text/html        : HTML 데이터
+        //   3) application/xml  : XML 데이터
+        //   4) application/json : JSON 데이터
+        let domParser = new DOMParser();
+        let xmlDoc = domParser.parseFromString(resData, 'application/xml');
+        console.log(xmlDoc);
+      });
+
+      // blob (대표적으로 이미지)
 
 
-
-
-
-
-
-
-
-
-
+  </script>
 
 </body>
 </html>
