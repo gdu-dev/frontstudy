@@ -397,14 +397,54 @@
   
   </script>
 
+  <hr>
+
   <div id="div3">
     <button type="button">저자요청</button>
     <div></div>
   </div>
   <style>
-
+    .object {
+      display: flex;
+    }
   </style>
   <script>
+
+    const getAuthors = (param1, param2)=>{
+      const request = new Request(param1);
+      fetch(request, { method: param2 })
+        .then(response=>response.text())
+        .then(resData=>{
+          let xmlDoc = new DOMParser().parseFromString(resData, 'application/xml');
+          let objects = xmlDoc.getElementsByTagName('object');
+          let result = '';
+          for(let i = 0; i < objects.length; i++){
+            result += '<div class="object">';
+            result += '  <div>';
+            result += `    <img src="${objects[i].getElementsByTagName('avatar')[0].textContent}">`;
+            result += '  </div>';
+            result += '  <div>';
+            result += '    <ul>';
+            result += `      <li>${objects[i].getElementsByTagName('id')[0].textContent}</li>`;
+            result += `      <li>${objects[i].getElementsByTagName('name')[0].textContent}</li>`;
+            result += `      <li>${objects[i].getElementsByTagName('email')[0].textContent}</li>`;
+            result += `      <li>${objects[i].getElementsByTagName('created-at')[0].textContent}</li>`;
+            result += `      <li>${objects[i].getElementsByTagName('updated-at')[0].textContent}</li>`;
+            result += '    </ul>';
+            result += '  </div>';
+            result += '</div>';
+          }
+          document.querySelector('#div3 > div').innerHTML = result;
+        });
+    }
+
+    document.querySelector('#div3 > button')
+      .addEventListener(
+        'click',
+        ()=>{
+          getAuthors('https://thetestrequest.com/authors.xml', 'GET');
+        }
+      );
 
   </script>
 
@@ -480,7 +520,7 @@
 
     getAlbum()
       .then(resData=>console.log(resData))
-      .cache(msg=>console.log(msg));
+      .catch(msg=>console.log(msg));
 
   </script>
 
