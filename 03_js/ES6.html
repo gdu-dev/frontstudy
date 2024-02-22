@@ -142,5 +142,86 @@
 
   </script>
 
+  <script>
+
+    /* 비동기 작업 : 응답을 기다리지 않는다. */
+
+    let albumId;  // 초기화가 없으면 undefined
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos/1');
+    xhr.send();
+    xhr.addEventListener('readystatechange', ()=>{
+      if(xhr.readyState !== XMLHttpRequest.DONE)
+        return;
+      if(xhr.status !== 200)
+        return;
+      let album = JSON.parse(xhr.responseText);
+      albumId = album.albumId;
+    })
+    console.log('albumId:', albumId);  // albumId는 1을 기대하지만, 비동기 작업의 응답을 기다리지 않고 곧바로 실행되기 때문에 undefined 상태가 된다.
+
+  </script>
+
+  <script>
+
+    /*
+      Promise
+      1. 비동기 작업이 맞이할 미래의 완료 또는 실패에 따른 그 결과값을 나타내는 객체이다.
+      2. 미래의 어떤 시점에 결과를 제공하겠다는 '약속'을 반환하는 방식으로 동작한다.
+      3. Promise 상태
+        1) pending   : 초기상태 (이행도 아니고 거부도 아닌 상태)
+        2) fulfilled : 이행상태 (비동기 작업 성공)
+        3) reject    : 거부상태 (비동기 작업 실패)
+      4. Promise 생성자
+        1) Promise를 지원하지 않는 함수를 Promise로 만들 때 사용한다.
+        2) 형식
+          new Promise(executor)
+        3) executor : 실행 함수
+          (1) 인자가 resolve, reject 인 실행 함수이다.
+          (2) resolve는 Promise 이행 함수이고, reject은 Promise 거부 함수이다.
+      5. Promise의 then() 메소드
+        1) Promise 객체가 호출할 수 있다.
+        2) Promise 이행 함수와 Promise 거부 함수를 콜백으로 추가한다.
+        3) 콜백이 호출될 경우 그 반환값을 처리하고, 호출되지 않는 경우 처리된 상태와 값을 그대로 가진 새로운 Promise를 반환한다.
+        4) 형식
+          then(()=>{ // 이행 함수 }, [()=>{ // 거부 함수 }])
+    */
+
+    let albumId2;
+    const myPromise = new Promise((resolve, reject)=>{
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/photos/1');
+      xhr.send();
+      xhr.addEventListener('readystatechange', ()=>{
+        if(xhr.readyState !== XMLHttpRequest.DONE)
+          return;
+        if(xhr.status !== 200)
+          reject(xhr.statusText);  // Promise 거부 함수 실행 (거부 사유를 전달할 수 있다.)
+        resolve(JSON.parse(xhr.responseText));  // Promise 이행 함수 실행 (응답 결과를 전달할 수 있다.)
+      })
+    });
+    myPromise
+      .then((resData)=>{
+        console.log(resData);
+        albumId2 = resData.albumId;
+        console.log('albumId2:', albumId2);
+      }, (msg)=>{
+        console.log(msg);
+      });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
