@@ -319,11 +319,82 @@
         let domParser = new DOMParser();
         let xmlDoc = domParser.parseFromString(resData, 'application/xml');
         console.log(xmlDoc);
+      });    
+      
+  </script>
+
+  <div id="div1">
+    <img>
+  </div>
+  <script>
+
+    // blob (대표적으로 이미지)
+
+    fetch('../../assets/image/animal1.jpg')
+      .then((response)=>{
+        if(!response.ok)
+          throw new Error(response.status);
+        return response.blob();
+      })
+      .then((binaryImage)=>{
+        let img = document.querySelector('#div1 > img');
+        img.src = URL.createObjectURL(binaryImage);
+        img.width = 192;
+      })
+      .catch((msg)=>{
+        console.log(msg);
       });
 
-      // blob (대표적으로 이미지)
+  </script>
 
+  <hr>
 
+  <div id="div2">
+    <button type="button">사용자조회</button>
+    <div></div>
+  </div>
+  <script>
+
+    // 사용자 목록 : https://jsonplaceholder.typicode.com/users
+
+    // #div2 > div 에 id, name, username, email, address, phone, website, company 가져오기
+
+    const getUsers = (param1, param2)=>{
+      fetch(param1, { method: param2 })
+        .then(response=>response.json())
+        .then(resData=>{
+          let result = '';
+          for(let i = 0; i < resData.length; i++){
+            result += '<ul>';
+            result += `<li>id: ${resData[i].id}</li>`;
+            result += `<li>name: ${resData[i].name}</li>`;
+            result += `<li>username: ${resData[i].username}</li>`;
+            result += `<li>email: ${resData[i].username}</li>`;
+            result += `<li>address.street: ${resData[i].address.street}</li>`;
+            result += `<li>address.suite: ${resData[i].address.suite}</li>`;
+            result += `<li>address.city: ${resData[i].address.city}</li>`;
+            result += `<li>address.zipcode: ${resData[i].address.zipcode}</li>`;
+            result += `<li>address.geo.lat: ${resData[i].address.geo.lat}</li>`;
+            result += `<li>address.geo.lng: ${resData[i].address.geo.lng}</li>`;
+            result += `<li>phone: ${resData[i].phone}</li>`;
+            result += `<li>website: ${resData[i].website}</li>`;
+            result += `<li>company.name: ${resData[i].company.name}</li>`;
+            result += `<li>company.catchPhrase: ${resData[i].company.catchPhrase}</li>`;
+            result += `<li>company.bs: ${resData[i].company.bs}</li>`;
+            result += '</ul>';
+          }
+          document.querySelector('#div2 > div').innerHTML = result;
+        });
+    }
+
+    document.querySelector('#div2 > button')
+      .addEventListener(
+          'click',
+          ()=>{
+            getUsers('https://jsonplaceholder.typicode.com/users', 'GET');
+          }
+      );
+  
   </script>
 
 </body>
