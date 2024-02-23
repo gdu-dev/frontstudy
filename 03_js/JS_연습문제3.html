@@ -88,11 +88,11 @@
   <div id="div3">
     <div id="original-image"></div>
     <div id="thumbnail-images">
-      <div style="background-image: url('../../assets/image/architecture1.jpg');"></div>
-      <div style="background-image: url('../../assets/image/architecture2.jpg');"></div>
-      <div style="background-image: url('../../assets/image/architecture3.jpg');"></div>
-      <div style="background-image: url('../../assets/image/architecture4.jpg');"></div>
-      <div style="background-image: url('../../assets/image/architecture5.jpg');"></div>
+      <div data-file-name="architecture1.jpg" style="background-image: url('../../assets/image/architecture1.jpg');"></div>
+      <div data-file-name="architecture2.jpg" style="background-image: url('../../assets/image/architecture2.jpg');"></div>
+      <div data-file-name="architecture3.jpg" style="background-image: url('../../assets/image/architecture3.jpg');"></div>
+      <div data-file-name="architecture4.jpg" style="background-image: url('../../assets/image/architecture4.jpg');"></div>
+      <div data-file-name="architecture5.jpg" style="background-image: url('../../assets/image/architecture5.jpg');"></div>
     </div>
   </div>
   <style>
@@ -124,8 +124,22 @@
     }
   </style>
   <script>
+    
     /* 5개 thumbnail 이미지에 마우스를 가져다대면 해당 이미지를 original-image로 표시하시오. */
     
+    var original_image = document.getElementById('original-image');
+    var thumbnail_images = document.querySelectorAll('#thumbnail-images > div');
+
+    for(var i = 0; i < thumbnail_images.length; i++) {
+      thumbnail_images[i].onmouseover = function(evt) {
+        original_image.style.backgroundImage = 'url(../../assets/image/'+ evt.target.dataset.fileName +')';
+        evt.target.style.border = '5px solid orange';
+      }
+      thumbnail_images[i].onmouseout = function(evt) {
+        evt.target.style.border = '5px solid rgba(0, 0, 0, 0)';
+      }
+    }
+
   </script>
 
   <hr>
