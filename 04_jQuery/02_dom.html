@@ -133,5 +133,42 @@
     radio.removeProp('type');  // buildin property는 삭제 금지한다.
   </script>
 
+  <div id="div5">
+    <input type="text" value="hello world">
+  </div>
+  <script>
+    // value 속성
+    console.log($('#div5').find(':text').val());
+    $('#div5').find(':text').val('안녕하세요 반갑습니다');
+  </script>
+
+  <div id="div6" data-name="고길동" data-home-address="서울" data-zipCode="12345">고길동</div>
+  <script>
+    // data-* 속성
+    console.log( /*YES*/$('#div6').data('name') );
+    console.log( /*YES*/$('#div6').data('home-address'), /*YES*/$('#div6').data('homeAddress') );
+    console.log( /*NO!*/$('#div6').data('zipCode'),      /*YES*/$('#div6').data('zipcode') );
+    $('#div6').data('name', '홍길동');
+    $('#div6').data('mobile', '010-1111-2222');
+    console.log($('#div6').data('name'));
+    console.log($('#div6').data('mobile'));
+  </script>
+
+  <div id="div7">hello world</div>
+  <script>
+    // style 속성
+    $('#div7').css('fontSize', '32px');  // camel case 가능
+    $('#div7').css('font-weight', 900);  // 원래 이름 가능
+    $('#div7').css('text-align', 'center').css('line-height', '100px');  // 메소드 체이닝
+    $('#div7').css({   // 객체로 등록
+      width: '200px',
+      height: '100px',
+      border: '1px solid gray',
+      backgroundColor: 'yellow'
+    });
+  </script>
+
+  
+
 </body>
 </html>
