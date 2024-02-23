@@ -168,7 +168,43 @@
     });
   </script>
 
-  
+  <div id="menu"></div>
+  <script>
+
+    /*
+      추가
+      1. 마지막 자식으로 추가하기
+        1) 부모.append(자식)
+        2) 자식.appendTo(부모)
+      2. 첫 번째 자식으로 추가하기
+        1) 부모.prepend(자식)
+        2) 자식.prependTo(부모)
+      3. 다음 형제로 추가하기
+        형제.after(형제)
+      4. 이전 형제로 추가하기
+        형제.before(형제)
+    */
+
+    var menu = $('#menu');
+    menu.append('<div>피자</div>');
+    $('<div>족발</div>').appendTo(menu);
+    menu.prepend('<div>회</div>');
+    $('<div>떡볶이</div>').prependTo(menu);
+    $('#menu > div:last-of-type').after('<div>보쌈</div>');
+    $('#menu > div:first-of-type').before('<div>아구찜</div>');
+
+    /*
+      삭제
+      1. 선택 삭제
+        요소.remove()
+      2. 모두 삭제 (하위 요소를 모두 지운다.)
+        요소.empty()
+    */
+
+    $('#menu > div:nth-of-type(2)').remove();
+    $('#menu').empty();
+
+  </script>
 
 </body>
 </html>
