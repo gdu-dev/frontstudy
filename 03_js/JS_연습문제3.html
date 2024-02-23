@@ -17,7 +17,16 @@
       light1.png, light2.png 이미지를 교환하고
       btn1의 ON, OFF 텍스트를 교환하시오.
     */
-
+    document.getElementById('btn1').onclick = function(evt) {
+      var img = document.querySelector('#div1 img');
+      if(evt.target.textContent === 'ON') {
+        img.src = '../../assets/image/light2.png';
+        evt.target.textContent = 'OFF';
+      } else {
+        img.src = '../../assets/image/light1.png';
+        evt.target.textContent = 'ON';
+      }
+    }
   </script>
 
   <hr>
@@ -52,7 +61,25 @@
     }
   </style>
   <script>
+
     /* animal1.jpg ~ animal10.jpg 를 이용하여 이미지 슬라이드를 만드시오. */
+    
+    var img_no = document.getElementById('img-no');
+    var img_container = document.getElementById('img-container');
+    var btn_prev = document.getElementById('btn-prev');
+    var btn_next = document.getElementById('btn-next');
+
+    var slide_no = 1;
+    function change_img(number) {
+      slide_no += number;
+      if(slide_no > 10) slide_no = 1;
+      if(slide_no < 1)  slide_no = 10;
+      img_container.style.backgroundImage = 'url(../../assets/image/animal' + slide_no + '.jpg)';
+      img_no.textContent = slide_no + ' / 10';
+    }
+
+    btn_prev.onclick = function() { change_img(-1); }
+    btn_next.onclick = function() { change_img(1); }
 
   </script>
 
