@@ -11,15 +11,126 @@
   <div id="box" class="wrap">box</div>
   <script>
 
+    // 태그 인식 : 배열
     var div = $('div');     // document.getElementsByTagName('div')
     console.log(div);
 
+    // 아이디 인식 : 객체
     var box = $('#box');    // document.getElementById('box')
     console.log(box);
 
+    // 클래스 인식 : 배열
     var wrap = $('.wrap');  // document.getElementsByClassName('wrap')
     console.log(wrap);
 
+  </script>
+
+  <ul class="ott">
+    <li id="netflex"><a href="javascipt:void(0)">넷플릭스</a></li>
+    <li id="disneyplus"><a href="javascipt:void(0)">디즈니플러스</a></li>
+    <li id="tving"><a id="tving-link" href="javascipt:void(0)">티빙</a></li>
+    <li id="wave"><a href="javascipt:void(0)">웨이브</a></li>
+    <li id="coupangplay"><a href="javascipt:void(0)">쿠팡플레이</a></li>
+  </ul>
+  <script>
+
+    // 1. 자식
+    console.log($('.ott > li'));
+    console.log($('.ott').find('li'));
+    console.log($('.ott').children('li'));
+    console.log($('.ott').children());
+
+    // 2. 후손
+    console.log($('.ott a'));
+    console.log($('.ott').find('a'));
+    console.log($('.ott').children('li').children('a'));
+    console.log($('.ott').children().children());
+
+    // 3. 일반 형제
+    console.log($('#tving ~ li'));           // 일반 형제 (#tving의 다음 형제들)
+    console.log($('#tving').nextAll('li'));  // 다음 형제 (#tving의 다음 형제들)
+    console.log($('#tving').prevAll('li'));  // 이전 형제 (#tving의 이전 형제들)
+    console.log($('#tving').siblings('li')); // 모든 형제 (#tving의 모든 형제들)
+    
+    // 4. 인접 형제
+    console.log($('#tving + li'));        // 인접 형제 (#tving의 다음 형제)
+    console.log($('#tving').next('li'));  // 다음 형제 (#tving의 다음 형제)
+    console.log($('#tving').prev('li'));  // 이전 형제 (#tving의 이전 형제)
+
+    // 5. 부모와 조상
+    console.log($('#tving-link').parent('li'));   // 부모
+    console.log($('#tving-link').closest('li'));  // 가장 가까운 부모
+    console.log($('#tving-link').parents());      // 부모 & 조상
+
+  </script>
+
+  <form id="frm">
+    <div><input type="text"></div>
+    <div><input type="password"></div>
+    <div><input type="radio" name="a"><input type="radio" name="a"></div>
+    <div><input type="checkbox"><input type="checkbox"></div>
+    <div><select><option selected>A</option><option>B</option></select></div>
+  </form>
+  <script>
+
+    // type 속성
+    console.log($(':text'));
+    console.log($(':password'));
+    console.log($(':radio'));
+    console.log($(':checkbox'));
+
+    // 상태 지정
+    console.log($(':focus'));             // 포커스를 가진 요소
+    console.log($(':text:focus'));        // text 중 포커스를 가진 요소
+    console.log($(':checked'));           // 체크된 요소
+    console.log($(':radio:checked'));     // radio 중 체크된 요소
+    console.log($(':checkbox:checked'));  // checkbox 중 체크된 요소
+    console.log($(':selected'));          // 선택된 요소
+    
+    // 상태 확인
+    console.log($(':text').is(':focus'));      // text가 포커스를 가지면 true 반환
+    console.log($(':radio').is(':checked'));   // radio가 체크되면 true 반환
+    console.log($('option').is(':selected'));  // option이 선택되면 true 반환
+
+  </script>
+
+  <hr>
+
+  <div id="div1">hello world</div>
+  <script>
+    // 내부 텍스트 : text()
+    console.log($('#div1').text());
+    $('#div1').text('안녕하세요 반갑습니다');
+  </script>
+
+  <div id="div2"><h1>hello world</h1></div>
+  <script>
+    // 내부 요소 : html()
+    console.log($('#div2').html());
+    $('#div2').html('<em>안녕하세요 반갑습니다</em>');
+  </script>
+
+  <div id="div3"><img src="../../assets/image/animal10.jpg" width="192px"></div>
+  <script>
+    // 태그 속성(attribute)
+    console.log($('#div3').find('img').attr('src'));
+    $('#div3').find('img').attr('src', '../../assets/image/flower1.jpg');
+    $('#div3').find('img').removeAttr('src');
+  </script>
+
+  <div id="div4">
+    <input type="radio" id="man" class="blind" value="M" checked="checkbox">
+  </div>
+  <script>
+    // 문서 객체 속성(property)
+    var radio = $('#div4').find(':radio');
+    console.log(radio.prop('type'));
+    console.log(radio.prop('id'));
+    console.log(radio.prop('className'), radio.prop('class'));
+    console.log(radio.prop('value'),     radio.val());
+    console.log(radio.prop('checked'),   radio.is(':checked'));
+    radio.prop('type', 'checkbox');
+    radio.removeProp('type');  // buildin property는 삭제 금지한다.
   </script>
 
 </body>
