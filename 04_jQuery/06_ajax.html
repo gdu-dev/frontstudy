@@ -108,5 +108,54 @@
     })
   </script>
 
+  <div>
+    <button type="button" id="btn4">버튼4</button>
+  </div>
+  <script>
+
+    $('#btn4').on('click', function(evt){
+
+      new Promise(function(resolve, reject){
+        $.ajax({
+          type: 'GET',
+          url: 'https://jsonplaceholder.typicode.com/photos/2',
+          dataType: 'json',
+          success: function(resData){
+            resolve(resData);
+          },
+          error: function(jqXHR){
+            reject(jqXHR);
+          }
+        })
+      })
+        .then(function(resData){
+          $.ajax({
+            type: 'GET',
+            url: 'https://thetestrequest.com/authors/' + resData.id + '.xml',
+            dataType: 'xml',
+            success: function(resData){
+              console.log(resData);
+            }
+          })
+        }, function(jqXHR){
+          console.log(jqXHR.status);
+        });
+
+      /*
+      new Promise(function(resolve, reject){
+
+      })
+        .then(function(resData){
+
+        })
+        .catch(function(jqXHR){
+          
+        });
+      */
+
+    });
+    
+  </script>
+
 </body>
 </html>
