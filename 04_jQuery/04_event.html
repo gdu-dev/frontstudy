@@ -123,5 +123,23 @@
     });
   </script>
 
+  <hr>
+
+  <div>
+    <button type="button" id="btn3">버튼3</button>
+    <div>안녕하세요</div>
+  </div>
+  <script>
+    var btn3 = $('#btn3');
+    var div = btn3.next();
+    div.on('click', function(evt){
+      alert(evt.target.textContent);
+    })
+    btn3.on('click', function(evt){
+      // div의 click 이벤트를 동작시킨다.
+      div.trigger('click');
+    })
+  </script>
+
 </body>
 </html>
