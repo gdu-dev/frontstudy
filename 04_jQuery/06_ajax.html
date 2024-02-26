@@ -154,7 +154,66 @@
       */
 
     });
-    
+
+  </script>
+
+  <div>
+    <button type="button" id="btn5">버튼5</button>
+  </div>
+  <script>
+
+    function myFunc1(){
+      return new Promise(function(resolve, reject){
+        $.ajax({
+          type: 'GET',
+          url: 'https://jsonplaceholder.typicode.com/photos/1',
+          dataType: 'json',
+          success: function(response1){
+            resolve(response1);
+          }
+        })
+      });
+    }
+    function myFunc2(response1){
+      return new Promise(function(resolve, reject){
+        $.ajax({
+          type: 'GET',
+          url: 'https://thetestrequest.com/authors/' + (response1.id + 1) + '.xml',
+          dataType: 'xml',
+          success: function(response2){
+            resolve(response2);
+          }
+        })
+      });
+    }
+    function myFunc3(response2){
+      return new Promise(function(resolve, reject){
+        $.ajax({
+          type: 'GET',
+          url: 'https://jsonplaceholder.typicode.com/photos/' + (Number($(response2).find('id').text()) + 1),
+          dataType: 'json',
+          success: function(response3){
+            resolve(response3);
+          }
+        })
+      });
+    }
+
+    function myJob(){
+      myFunc1()
+      .then(function(response1){
+        return myFunc2(response1);
+      })
+      .then(function(response2){
+        return myFunc3(response2);
+      })
+      .then(function(response3){
+        console.log(response3);
+      });
+    }
+
+    $('#btn5').on('click', myJob);
+
   </script>
 
 </body>
