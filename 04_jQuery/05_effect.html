@@ -81,9 +81,26 @@
 
   </script>
 
+  <script>
 
+    $('#btn-toggle').on('click', function(evt){
+    
+      // toggle() : show() <-> hide()
+      // $('#img-container').toggle();
 
+      // fadeToggle() : fadeIn() <-> fadeOut()
+      // $('#img-container').fadeToggle(3000, 'linear', function(){
+      //   alert('작업완료되었다.');
+      // });
 
+      // slideToggle() : slideDown() <-> slideUp()
+      $('#img-container').slideToggle(3000, 'swing', function(){
+        alert('작업완료되었다.');
+      })
+
+    })
+
+  </script>
 
 </body>
 </html>
