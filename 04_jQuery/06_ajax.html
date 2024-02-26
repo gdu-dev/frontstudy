@@ -58,7 +58,7 @@
       $.ajax({
 
         /* 요청 */
-        type: 'post',  /* 요청 메소드
+        type: 'GET',  /* 요청 메소드
                           GET (디폴트)
                           POST
                           PUT
@@ -84,7 +84,7 @@
                                               });  */
           console.log('success', resData);
         },
-        
+
         error: function(jqXHR){             /* 요청 실패 시 동작하는 함수
                                               function(jqXHR jqXHR, [String textStatus], [String errorThrown]){
 
