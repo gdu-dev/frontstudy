@@ -111,15 +111,16 @@
     btn2.on('click', function(evt){
       for(var i = 0; i < menu.length; i++) {
         var str = '<div>';
-        str += menu[i].name;
-        str += '&nbsp;';
-        str += menu[i].price;
-        str += '&nbsp;';
+        str += '<span>' + menu[i].name + '</span>';
+        str += '<span>' + menu[i].price + '</span>';
         str += '<button class="btn-alert" type="button">확인</button>';
         str += '</div>';
         div.append(str);
       }
-    })
+    });
+    $(document).on('click', '.btn-alert', function(evt){
+      alert($(evt.target).prev().prev().text());
+    });
   </script>
 
 </body>
