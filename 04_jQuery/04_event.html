@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <script>
+
+    /*
+      jQuery 이벤트
+
+      1. on()
+        1) 하나의 이벤트 타입에 여러 개의 이벤트 리스너를 등록할 수 있다. (표준 이벤트 모델의 특징)
+        2) 정적 요소
+          이벤트대상.on(이벤트타입, 이벤트리스너)
+        3) 동적 요소 (정적 요소도 가능)
+          부모요소.on(이벤트타입, 이벤트대상, 이벤트리스너)
+      
+      2. off()
+        1) 등록된 이벤트를 제거한다.
+        2) 형식
+          이벤트대상.off(이벤트타입)
+      
+      3. one()
+        1) 한 번만 동작하는 이벤트를 작성할 수 있다.
+        2) 형식
+          이벤트대상.one(이벤트타입, 이벤트리스너)
+      
+      4. trigger()
+        1) 강제로 이벤트를 발생시킨다.
+        2) 형식
+          이벤트대상.trigger(이벤트타입)
+    */
+
+  </script>
+
+  <div>
+    <button type="button" id="btn1">버튼1</button>
+  </div>
+  <script>
+    $('#btn1').on('click', function(evt){
+      /*
+        JavaScript        jQuery
+        객체.textContent  $(객체).text()
+      */
+      /*
+        이벤트대상
+        1. evt.target
+        2. this (화살표 함수에서는 사용할 수 없다.)
+      */
+      alert(evt.target.textContent);
+    })
+  </script>
+
+
+
+
+</body>
+</html>
