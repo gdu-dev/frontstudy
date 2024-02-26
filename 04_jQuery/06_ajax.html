@@ -52,26 +52,55 @@
     <button type="button" id="btn3">버튼3</button>
   </div>
   <script>
+
     $('#btn3').on('click', function(evt){
+      
       $.ajax({
+
         /* 요청 */
-        type: 'post',
-        url: 'https://thetestrequest.com/authors/1.xml',
-        async: true,
+        type: 'post',  /* 요청 메소드
+                          GET (디폴트)
+                          POST
+                          PUT
+                          DELETE */      
+
+        url: 'https://thetestrequest.com/authors/1.xml', /* 요청 URL */
+
+        async: true,  /* 비동기/동기 작업
+                         true  : 비동기 작업 (디폴트)
+                         false : 동기 작업 */
+        
         /* 응답 */
-        dataType: 'xml',
-        success: function(resData){
+        dataType: 'xml',  /* 응답 데이터 타입
+                             xml
+                             json
+                             script : JavaScript 코드를 문자열로 받아옴
+                             html   : HTML 태그를 문자열로 받아옴
+                             text   : 일반 문자열을 받아옴 */
+        
+        success: function(resData){         /* 응답 데이터를 받아오는 함수
+                                              function(Anything data, [String textStatus], [jqXHR jqXHR]) {
+
+                                              });  */
           console.log('success', resData);
         },
-        error: function(jqXHR){
-          console.log('error', jqXHR.status, jqXHR.statusText);
+        
+        error: function(jqXHR){             /* 요청 실패 시 동작하는 함수
+                                              function(jqXHR jqXHR, [String textStatus], [String errorThrown]){
+
+                                              })  */
+          console.log('error', jqXHR.status);
+          console.log('error', jqXHR.statusText);
+          console.log('error', jqXHR.responseText);
         }
       })
       .done(function(resData){
         console.log('done', resData);
       })
       .fail(function(jqXHR){
-        console.log('fail', jqXHR.status, jqXHR.statusText);
+        console.log('fail', jqXHR.status);
+        console.log('fail', jqXHR.statusText);
+        console.log('fail', jqXHR.responseText);
       })
       .always(function(){
         console.log('always');
