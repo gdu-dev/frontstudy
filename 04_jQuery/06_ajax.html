@@ -48,6 +48,36 @@
     })
   </script>
 
+  <div>
+    <button type="button" id="btn3">버튼3</button>
+  </div>
+  <script>
+    $('#btn3').on('click', function(evt){
+      $.ajax({
+        /* 요청 */
+        type: 'post',
+        url: 'https://thetestrequest.com/authors/1.xml',
+        async: true,
+        /* 응답 */
+        dataType: 'xml',
+        success: function(resData){
+          console.log('success', resData);
+        },
+        error: function(jqXHR){
+          console.log('error', jqXHR.status, jqXHR.statusText);
+        }
+      })
+      .done(function(resData){
+        console.log('done', resData);
+      })
+      .fail(function(jqXHR){
+        console.log('fail', jqXHR.status, jqXHR.statusText);
+      })
+      .always(function(){
+        console.log('always');
+      })
+    })
+  </script>
 
 </body>
 </html>
