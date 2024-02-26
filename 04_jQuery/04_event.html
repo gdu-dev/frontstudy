@@ -56,8 +56,71 @@
     })
   </script>
 
+  <hr>
 
+  <div>
+    <ul>
+      <li class="menu">김치찌개</li>
+      <li class="menu">순두부찌개</li>
+      <li class="menu">된장찌개</li>
+    </ul>
+  </div>
+  <script>
 
+    /*
+      JavaScript는 반복문으로 배열의 이벤트 처리를 수행한다.
+
+      var menu = document.getElementsByClassName('menu');
+      for(var i = 0; i < menu.length; i++) {
+        menu[i].addEventListener('click', function(evt){
+          alert(evt.target.textContent);
+        })
+      }
+    */
+
+    /* jQuery는 반복문 없이 배열의 이벤트 처리를 수행할 수 있다. */
+    $('.menu').on('click', function(evt){
+      alert(evt.target.textContent);
+    })
+
+  </script>
+
+  <hr>
+
+  <div>
+    <button type="button" id="btn2">버튼2</button>
+    <div></div>
+  </div>
+  <script>
+    var menu = [
+      {
+        name: '김치찌개',
+        price: 10000
+      },
+      {
+        name: '순두부찌개',
+        price: 15000
+      },
+      {
+        name: '된장찌개',
+        price: 20000
+      }
+    ]
+    var btn2 = $('#btn2');
+    var div = btn2.next();
+    btn2.on('click', function(evt){
+      for(var i = 0; i < menu.length; i++) {
+        var str = '<div>';
+        str += menu[i].name;
+        str += '&nbsp;';
+        str += menu[i].price;
+        str += '&nbsp;';
+        str += '<button class="btn-alert" type="button">확인</button>';
+        str += '</div>';
+        div.append(str);
+      }
+    })
+  </script>
 
 </body>
 </html>
