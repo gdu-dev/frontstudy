@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.5/js.cookie.min.js" integrity="sha512-nlp9/l96/EpjYBx7EP7pGASVXNe80hGhYAUrjeXnu/fyF5Py0/RXav4BBNs7n5Hx1WFhOEOWSAVjGeC3oKxDVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  
+  <div class="wrap">
+    <div class="header-wrap">
+      <h1 class="title">팝업화면</h1>
+    </div>
+    <div class="body-wrap">
+      <input type="checkbox" id="chk-do-not-open">
+      <label for="chk-do-not-open">오늘 더 이상 보지 않기</label>
+      <button type="button" id="btn-close">닫기</button>
+    </div>
+  </div>
+
+  <script>
+
+    /*
+      오늘 더 이상 보지 않기를 체크하면
+      'do_not_open' 이라는 쿠키를 1일 동안 모든 경로("/")에 사용할 수 있도록 저장한다.
+    */
+
+    $('#btn-close').on('click', function(evt){
+      if($('#chk-do-not-open').is(':checked')){
+        Cookies.set('do_not_open', 'true', {
+          expires: 1,
+          path: '/'
+        })
+      }
+      window.close();
+    })
+
+  </script>
+
+</body>
+</html>
