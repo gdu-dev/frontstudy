@@ -168,7 +168,20 @@
       해제하면 check1.png를 checkbox 대신 나타내시오.
       체크하면 check2.png를 checkbox 대신 나타내시오.
     */
-    
+    #div4 input[type=checkbox] {
+      display: none;
+    }
+    #div4 label {
+      padding-left: 20px;
+      background-image: url('../../assets/image/check1.png');
+      background-size: 16px 16px;
+      background-repeat: no-repeat;
+      background-position: 0 3px;
+      cursor: pointer;
+    }
+    #div4 input[type=checkbox]:checked + label {
+      background-image: url('../../assets/image/check2.png');
+    }
   </style>
   <script>
     var chkAll = document.getElementById('chk_all');
@@ -215,7 +228,17 @@
       Hint) data-state="close-answer"는 정답 숨김 상태를 의미하고,
             data-state="open-answer"는 정답 보임 상태를 의미한다.
     */
-
+    document.getElementById('btn5').onclick = function(evt){
+      if(evt.target.dataset.state === 'close-answer'){
+        document.getElementById('answer').style.display = 'block';
+        evt.target.textContent = '정답숨기기';
+        evt.target.dataset.state = 'open-answer';
+      } else {
+        document.getElementById('answer').style.display = 'none';
+        evt.target.textContent = '정답보기';
+        evt.target.dataset.state = 'close-answer';
+      }
+    }
   </script>
 
 </body>
